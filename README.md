@@ -1,2 +1,2 @@
-# clipto_celeb
-人物库编辑工具项目
+# Clipto_celeb
+一个公众人物库的在线编辑工具~~
