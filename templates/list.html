@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}人物列表{% endblock %}
+
+{% block page_title %}人物列表{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mb-4">人物列表</h2>
+            
+            <!-- 搜索框 -->
+            <div class="row mb-4">
+                <div class="col-md-8 mx-auto">
+                    <form class="d-flex" action="{{ url_for('celeb_list_page') if request.path.startswith('/celeb/') else url_for('list_page') }}" method="get">
+                        <input type="text" name="query" class="form-control" placeholder="输入姓名查找..." value="{{ request.args.get('query', '') }}">
+                        <button type="submit" class="btn btn-primary ml-2">查找</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- 数据表格 -->
+            <div class="table-responsive">
+                {% if data and data|length > 0 %}
+                <table class="table table-striped table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>职业</th>
+                            <th>国籍</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            <td>{{ item.get('id', 'N/A') }}</td>
+                            <td>{{ item.get('name', '未命名') }}</td>
+                            <td>{{ item.get('gender', '未知') }}</td>
+                            <td>{{ item.get('occupation', '未知') }}</td>
+                            <td>{{ item.get('country', '未知') }}</td>
+                            <td>
+                                <a href="{{ url_for('celeb_detail_page', id=item.get('id')) if request.path.startswith('/celeb/') else url_for('detail_page', id=item.get('id')) }}" class="btn btn-sm btn-info">查看</a>
+                                <a href="{{ url_for('celeb_edit_page', id=item.get('id')) if request.path.startswith('/celeb/') else url_for('edit_page', id=item.get('id')) }}" class="btn btn-sm btn-warning">编辑</a>
+                                <a href="{{ url_for('celeb_delete_page', id=item.get('id')) if request.path.startswith('/celeb/') else url_for('delete_page', id=item.get('id')) }}" class="btn btn-sm btn-danger">删除</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+                <!-- 分页控件 -->
+                <nav aria-label="人物列表分页">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item {% if page <= 1 %}disabled{% endif %}">
+                            <a class="page-link" href="{{ url_for('celeb_list_page', page=1) if request.path.startswith('/celeb/') else url_for('list_page', page=1) }}" aria-label="首页">
+                                <span aria-hidden="true">&laquo;&laquo;</span>
+                                <span class="sr-only">首页</span>
+                            </a>
+                        </li>
+                        <li class="page-item {% if page <= 1 %}disabled{% endif %}">
+                            <a class="page-link" href="{{ url_for('celeb_list_page', page=page-1 if page>1 else 1) if request.path.startswith('/celeb/') else url_for('list_page', page=page-1 if page>1 else 1) }}" aria-label="上一页">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">上一页</span>
+                            </a>
+                        </li>
+                        <li class="page-item active">
+                            <span class="page-link">
+                                第 {{ page }} / {{ total_pages }} 页
+                            </span>
+                        </li>
+                        <li class="page-item {% if page >= total_pages %}disabled{% endif %}">
+                            <a class="page-link" href="{{ url_for('celeb_list_page', page=page+1 if page<total_pages else total_pages) if request.path.startswith('/celeb/') else url_for('list_page', page=page+1 if page<total_pages else total_pages) }}" aria-label="下一页">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">下一页</span>
+                            </a>
+                        </li>
+                        <li class="page-item {% if page >= total_pages %}disabled{% endif %}">
+                            <a class="page-link" href="{{ url_for('celeb_list_page', page=total_pages) if request.path.startswith('/celeb/') else url_for('list_page', page=total_pages) }}" aria-label="末页">
+                                <span aria-hidden="true">&raquo;&raquo;</span>
+                                <span class="sr-only">末页</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="text-center mt-3">
+                    <span class="text-muted">共 {{ total_items }} 条记录，每页显示 {{ per_page }} 条</span>
+                </div>
+                {% else %}
+                <div class="alert alert-warning">正在加载数据，请等待5秒后自动刷新...</div>
+                <script>
+                    // 5秒后自动刷新页面
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 5000);
+                </script>
+                {% endif %}
+            </div>
+            
+            <!-- 返回按钮 -->
+            <div class="text-center mt-4">
+                <a href="{{ url_for('celeb_index') if request.path.startswith('/celeb/') else url_for('index') }}" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left mr-2"></i>返回目录页
+                </a>
+                <a href="{{ url_for('celeb_add_page') if request.path.startswith('/celeb/') else url_for('add_page') }}" class="btn btn-success ml-3">
+                    <i class="fas fa-plus mr-2"></i>添加新人物
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

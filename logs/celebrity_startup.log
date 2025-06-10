@@ -1,0 +1,1037 @@
+2025-06-09 16:37:38,808 - root - INFO - 启动Celebrity数据管理系统...
+2025-06-09 16:37:39,000 - root - INFO - 启用认证，用户需要登录才能访问应用
+2025-06-09 16:37:39,000 - root - INFO - 使用以下配置启动应用:
+2025-06-09 16:37:39,000 - root - INFO -   - SCRIPT_NAME: /celeb
+2025-06-09 16:37:39,000 - root - INFO -   - FLASK_APP_ROOT: /celeb
+2025-06-09 16:37:39,000 - root - INFO -   - 运行模式: prod
+2025-06-09 16:37:39,001 - root - INFO -   - 调试模式: 关闭
+2025-06-09 16:37:39,017 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 16:37:39,041 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 16:37:39,043 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 16:37:39,044 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 16:37:39,045 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 16:37:39,046 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 16:37:39,047 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 16:37:39,052 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 16:37:39,053 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 16:37:39,054 - celebrity_app - ERROR - 启动备份调度器失败: BackupScheduler.start() got an unexpected keyword argument 'interval_hours'
+Traceback (most recent call last):
+  File "d:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\core\app.py", line 603, in create_app
+    app.backup_scheduler.start(interval_hours=interval_hours)
+TypeError: BackupScheduler.start() got an unexpected keyword argument 'interval_hours'
+2025-06-09 16:37:39,057 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 16:47:12,758 - root - INFO - 启动Celebrity数据管理系统...
+2025-06-09 16:47:12,955 - root - INFO - 启用认证，用户需要登录才能访问应用
+2025-06-09 16:47:12,956 - root - INFO - 使用以下配置启动应用:
+2025-06-09 16:47:12,956 - root - INFO -   - SCRIPT_NAME: /celeb
+2025-06-09 16:47:12,956 - root - INFO -   - FLASK_APP_ROOT: /celeb
+2025-06-09 16:47:12,956 - root - INFO -   - 运行模式: prod
+2025-06-09 16:47:12,956 - root - INFO -   - 调试模式: 关闭
+2025-06-09 16:47:12,956 - root - INFO -   - 认证状态: 启用
+2025-06-09 16:47:12,987 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 16:47:13,010 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 16:47:13,013 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 16:47:13,015 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 16:47:13,016 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 16:47:13,016 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 16:47:13,017 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 16:47:13,021 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 16:47:13,022 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 16:47:13,023 - celebrity_app - ERROR - 启动备份调度器失败: BackupScheduler.start() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\core\app.py", line 630, in create_app
+    app.backup_scheduler.start(interval_hours=interval_hours)
+TypeError: BackupScheduler.start() got an unexpected keyword argument 'interval_hours'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\core\app.py", line 634, in create_app
+    app.backup_scheduler.start(interval_hours)
+TypeError: BackupScheduler.start() takes 1 positional argument but 2 were given
+2025-06-09 16:47:13,027 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 16:47:13,030 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 16:47:13,043 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 16:47:13,047 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 16:47:13,047 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 16:47:13,048 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 16:47:13,050 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 16:47:13,050 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 16:47:13,054 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 16:47:13,055 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 16:47:13,056 - celebrity_app - ERROR - 启动备份调度器失败: BackupScheduler.start() takes 1 positional argument but 2 were given
+Traceback (most recent call last):
+  File "D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\core\app.py", line 630, in create_app
+    app.backup_scheduler.start(interval_hours=interval_hours)
+TypeError: BackupScheduler.start() got an unexpected keyword argument 'interval_hours'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\core\app.py", line 634, in create_app
+    app.backup_scheduler.start(interval_hours)
+TypeError: BackupScheduler.start() takes 1 positional argument but 2 were given
+2025-06-09 16:47:13,059 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 16:47:13,061 - root - INFO - 以生产模式运行在 http://0.0.0.0:5000/celeb/
+2025-06-09 16:55:14,299 - root - INFO - 启动Celebrity数据管理系统...
+2025-06-09 16:55:14,509 - root - INFO - 启用认证，用户需要登录才能访问应用
+2025-06-09 16:55:14,509 - root - INFO - 使用以下配置启动应用:
+2025-06-09 16:55:14,509 - root - INFO -   - SCRIPT_NAME: /celeb
+2025-06-09 16:55:14,509 - root - INFO -   - FLASK_APP_ROOT: /celeb
+2025-06-09 16:55:14,509 - root - INFO -   - 运行模式: prod
+2025-06-09 16:55:14,509 - root - INFO -   - 调试模式: 关闭
+2025-06-09 16:55:14,509 - root - INFO -   - 认证状态: 启用
+2025-06-09 16:55:14,527 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 16:55:14,549 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 16:55:14,552 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 16:55:14,552 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 16:55:14,552 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 16:55:14,553 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 16:55:14,554 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 16:55:14,558 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 16:55:14,559 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 16:55:14,560 - trans_web.core.app - INFO - 备份间隔已更新为: 12小时
+2025-06-09 16:55:14,560 - celebrity_app - INFO - 备份调度器已初始化
+2025-06-09 16:55:14,562 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 16:55:14,565 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 16:55:14,576 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 16:55:14,580 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 16:55:14,580 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 16:55:14,581 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 16:55:14,581 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 16:55:14,582 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 16:55:14,585 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 16:55:14,587 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 16:55:14,587 - trans_web.core.app - INFO - 备份间隔已更新为: 12小时
+2025-06-09 16:55:14,588 - celebrity_app - INFO - 备份调度器已初始化
+2025-06-09 16:55:14,591 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 16:55:14,593 - root - INFO - 以生产模式运行在 http://0.0.0.0:5000/celeb/
+2025-06-09 16:55:57,797 - celebrity_app - INFO - 未登录访问受保护路径: /celeb/
+2025-06-09 16:55:57,798 - celebrity_app - INFO - 重定向到登录页: /celeb/auth/login
+2025-06-09 16:55:57,798 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 302
+2025-06-09 16:55:57,807 - celebrity_app.auth - INFO - 未登录访问: /celeb/auth/login, 重定向到登录页
+2025-06-09 16:55:57,808 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/auth/login - 状态码: 302
+2025-06-09 16:55:57,818 - celebrity_app - INFO - 备用登录页面访问，next_url=/celeb/auth/login, session=<SecureCookieSession {'next': '/celeb/', 'next_url': '/celeb/auth/login'}>
+2025-06-09 16:55:57,824 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/auth/login?next=/celeb/auth/login - 状态码: 200
+2025-06-09 16:55:59,422 - celebrity_app - INFO - 备用登录页面访问，next_url=/celeb/, session=<SecureCookieSession {'next': '/celeb/', 'next_url': '/celeb/auth/login'}>
+2025-06-09 16:55:59,425 - celebrity_app - INFO - 备用登录: 用户 Lingganshike 登录成功，将重定向到 /celeb/
+2025-06-09 16:55:59,426 - celebrity_app - INFO - 最终重定向URL: /celeb/
+2025-06-09 16:55:59,427 - celebrity_app - INFO - 请求完成: POST http://localhost:5000/auth/login - 状态码: 302
+2025-06-09 16:55:59,439 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 16:55:59,443 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 16:55:59,491 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 16:55:59,497 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 16:56:00,863 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 16:56:01,020 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 16:56:01,162 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 200
+2025-06-09 16:56:16,144 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 16:56:16,146 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 16:56:16,194 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 16:56:16,197 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 16:56:32,999 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 16:56:33,114 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 16:56:33,179 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 16:56:38,907 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 16:56:39,061 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/?page=2&search_name= - 状态码: 200
+2025-06-09 16:56:39,133 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 16:56:40,008 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 16:56:40,126 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/?page=3&search_name= - 状态码: 200
+2025-06-09 16:56:40,175 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 16:58:31,760 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 16:58:31,842 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/?search_name= - 状态码: 200
+2025-06-09 16:58:31,906 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:08:08,399 - root - INFO - 启动Celebrity数据管理系统...
+2025-06-09 17:08:08,668 - root - INFO - 启用认证，用户需要登录才能访问应用
+2025-06-09 17:08:08,668 - root - INFO - 使用以下配置启动应用:
+2025-06-09 17:08:08,669 - root - INFO -   - SCRIPT_NAME: /celeb
+2025-06-09 17:08:08,669 - root - INFO -   - FLASK_APP_ROOT: /celeb
+2025-06-09 17:08:08,669 - root - INFO -   - 运行模式: prod
+2025-06-09 17:08:08,669 - root - INFO -   - 调试模式: 关闭
+2025-06-09 17:08:08,669 - root - INFO -   - 认证状态: 启用
+2025-06-09 17:08:08,693 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 17:08:08,753 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 17:08:08,756 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 17:08:08,757 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 17:08:08,757 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 17:08:08,759 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 17:08:08,759 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 17:08:08,765 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 17:08:08,765 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 17:08:08,766 - trans_web.core.app - INFO - 备份间隔已更新为: 12小时
+2025-06-09 17:08:08,766 - celebrity_app - INFO - 备份调度器已初始化
+2025-06-09 17:08:08,769 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 17:08:08,772 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 17:08:08,784 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 17:08:08,789 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 17:08:08,790 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 17:08:08,792 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 17:08:08,793 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 17:08:08,794 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 17:08:08,798 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 17:08:08,800 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 17:08:08,800 - trans_web.core.app - INFO - 备份间隔已更新为: 12小时
+2025-06-09 17:08:08,801 - celebrity_app - INFO - 备份调度器已初始化
+2025-06-09 17:08:08,805 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 17:08:08,807 - root - INFO - 以生产模式运行在 http://0.0.0.0:5000/celeb/
+2025-06-09 17:08:33,816 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:08:33,819 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:08:33,860 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:08:33,867 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:08:35,402 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:08:35,566 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:08:35,633 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:08:38,210 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:08:38,288 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:08:38,326 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:09:17,913 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:09:17,915 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:09:17,961 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:09:17,966 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:09:19,725 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:09:19,813 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:09:19,875 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:09:22,468 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:09:22,541 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/?search_name=Antoine+Griezmann - 状态码: 200
+2025-06-09 17:09:22,587 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:09:28,936 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:09:29,080 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/?search_name=Antoine+Griezmann - 状态码: 200
+2025-06-09 17:09:29,132 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:09:31,861 - celebrity_app - INFO - 访问首页
+2025-06-09 17:09:31,862 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:09:31,863 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:09:31,880 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:09:31,881 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:09:31,945 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:09:31,949 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:13:17,205 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:13:17,207 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:13:17,240 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:13:17,245 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:13:18,570 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:13:18,659 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:13:18,716 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:13:22,264 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/add - 状态码: 308
+2025-06-09 17:13:22,286 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/add/ - 状态码: 200
+2025-06-09 17:13:22,352 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:13:25,775 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search - 状态码: 308
+2025-06-09 17:13:25,801 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search/ - 状态码: 200
+2025-06-09 17:13:25,857 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:14:29,617 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:14:29,692 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:14:29,755 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:16:06,035 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:16:06,213 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:16:06,262 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:16:08,709 - celebrity_app - INFO - 访问首页
+2025-06-09 17:16:08,711 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:16:08,712 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:16:08,723 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:16:08,724 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:16:08,790 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:16:08,793 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:22:18,714 - root - INFO - 启动Celebrity数据管理系统...
+2025-06-09 17:22:18,915 - root - INFO - 启用认证，用户需要登录才能访问应用
+2025-06-09 17:22:18,915 - root - INFO - 认证状态: 启用
+2025-06-09 17:22:18,915 - root - INFO - 环境变量DISABLE_AUTH=false
+2025-06-09 17:22:18,916 - root - INFO - 使用以下配置启动应用:
+2025-06-09 17:22:18,916 - root - INFO -   - SCRIPT_NAME: /celeb
+2025-06-09 17:22:18,916 - root - INFO -   - FLASK_APP_ROOT: /celeb
+2025-06-09 17:22:18,916 - root - INFO -   - 运行模式: prod
+2025-06-09 17:22:18,916 - root - INFO -   - 调试模式: 关闭
+2025-06-09 17:22:18,917 - root - INFO -   - 认证状态: 启用
+2025-06-09 17:22:18,938 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 17:22:18,982 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 17:22:18,986 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 17:22:18,987 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 17:22:18,988 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 17:22:18,989 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 17:22:18,990 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 17:22:18,994 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 17:22:18,996 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 17:22:18,996 - trans_web.core.app - INFO - 备份间隔已更新为: 12小时
+2025-06-09 17:22:18,997 - celebrity_app - INFO - 备份调度器已初始化
+2025-06-09 17:22:19,000 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 17:22:19,004 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 17:22:19,015 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 17:22:19,018 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 17:22:19,019 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 17:22:19,019 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 17:22:19,021 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 17:22:19,022 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 17:22:19,027 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 17:22:19,028 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 17:22:19,029 - trans_web.core.app - INFO - 备份间隔已更新为: 12小时
+2025-06-09 17:22:19,029 - celebrity_app - INFO - 备份调度器已初始化
+2025-06-09 17:22:19,033 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 17:22:19,034 - root - INFO - 以生产模式运行在 http://0.0.0.0:5000/celeb/
+2025-06-09 17:23:15,370 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:23:15,373 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:23:15,409 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:23:15,412 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:23:17,025 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:23:17,141 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:23:17,203 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:23:19,551 - celebrity_app - INFO - 访问首页
+2025-06-09 17:23:19,553 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:23:19,555 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:23:19,564 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:23:19,565 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:23:19,621 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:23:19,623 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:23:20,847 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search - 状态码: 308
+2025-06-09 17:23:20,860 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search/ - 状态码: 200
+2025-06-09 17:23:20,910 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:23:24,007 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search?keyword=Nick+Frost - 状态码: 308
+2025-06-09 17:23:24,024 - trans_web.core.app - INFO - 正在加载主数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:23:24,222 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search/?keyword=Nick+Frost - 状态码: 200
+2025-06-09 17:23:24,296 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:23:24,301 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/base_photos/000009_Nick_Frost_photo_1.webp - 状态码: 200
+2025-06-09 17:23:26,141 - celebrity_app - INFO - 访问首页
+2025-06-09 17:23:26,143 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:23:26,144 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:23:26,156 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:23:26,157 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:23:26,208 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:23:26,211 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:23:44,397 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:23:44,463 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:23:44,523 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:30:41,168 - celebrity_app - INFO - 访问首页
+2025-06-09 17:30:41,169 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:30:41,170 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:30:41,180 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:30:41,181 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:30:41,253 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:30:41,255 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:30:42,531 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:30:42,672 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:30:42,756 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:30:43,847 - celebrity_app - INFO - 访问首页
+2025-06-09 17:30:43,848 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:30:43,849 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:30:43,863 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:30:43,864 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:30:43,917 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:30:43,920 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:38:49,619 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:38:49,621 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:38:49,659 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:38:49,664 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:38:50,990 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:38:51,087 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:38:51,158 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:55:55,546 - root - INFO - 启动Celebrity数据管理系统...
+2025-06-09 17:55:55,750 - root - INFO - 生成随机SECRET_KEY，强制用户每次重启后重新登录
+2025-06-09 17:55:55,750 - root - INFO - 使用以下配置启动应用:
+2025-06-09 17:55:55,751 - root - INFO -   - SCRIPT_NAME: /celeb
+2025-06-09 17:55:55,751 - root - INFO -   - FLASK_APP_ROOT: /celeb
+2025-06-09 17:55:55,751 - root - INFO -   - 运行模式: prod
+2025-06-09 17:55:55,751 - root - INFO -   - 调试模式: 关闭
+2025-06-09 17:55:55,751 - root - INFO -   - 认证状态: 强制启用
+2025-06-09 17:55:55,777 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 17:55:55,823 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 17:55:55,826 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 17:55:55,827 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 17:55:55,828 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 17:55:55,828 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 17:55:55,830 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 17:55:55,834 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 17:55:55,837 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 17:55:55,838 - trans_web.core.app - INFO - 备份间隔已更新为: 12小时
+2025-06-09 17:55:55,838 - celebrity_app - INFO - 备份调度器已初始化
+2025-06-09 17:55:55,841 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 17:55:55,846 - celebrity_app - INFO - 应用初始化开始，配置模式: production
+2025-06-09 17:55:55,858 - celebrity_app - INFO - 所有蓝图注册成功
+2025-06-09 17:55:55,862 - celebrity_app.auth - INFO - 认证模块初始化完成
+2025-06-09 17:55:55,864 - celebrity_app - INFO - 认证模块已初始化，用户需要登录才能访问
+2025-06-09 17:55:55,865 - celebrity_app - INFO - ReverseProxied中间件已初始化
+2025-06-09 17:55:55,866 - celebrity_app.middleware - INFO - 初始化ReverseProxied中间件，script_name=/celeb
+2025-06-09 17:55:55,868 - celebrity_app - INFO - 注册子目录下的基础功能路由...
+2025-06-09 17:55:55,874 - celebrity_app - INFO - 备份调度器已启动，间隔时间: 12小时
+2025-06-09 17:55:55,875 - trans_web.core.app - INFO - 备份调度器已启动，间隔时间: 12.0小时
+2025-06-09 17:55:55,876 - trans_web.core.app - INFO - 备份间隔已更新为: 12小时
+2025-06-09 17:55:55,876 - celebrity_app - INFO - 备份调度器已初始化
+2025-06-09 17:55:55,884 - celebrity_app - INFO - 应用初始化完成
+2025-06-09 17:55:55,886 - root - INFO - 以生产模式运行在 http://0.0.0.0:5000/celeb/
+2025-06-09 17:56:24,781 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 17:56:24,782 - celebrity_app - WARNING - 未登录访问受保护路径: /celeb/, 将重定向到登录页面
+2025-06-09 17:56:24,783 - celebrity_app - INFO - 重定向到登录页: /celeb/auth/login
+2025-06-09 17:56:24,784 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 302
+2025-06-09 17:56:24,794 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/auth/login
+2025-06-09 17:56:24,794 - celebrity_app.auth - INFO - 未登录访问: /celeb/auth/login, 重定向到登录页
+2025-06-09 17:56:24,797 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/auth/login - 状态码: 302
+2025-06-09 17:56:24,820 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/auth/login
+2025-06-09 17:56:24,820 - celebrity_app - INFO - 备用登录页面访问，next_url=/celeb/auth/login, session=<SecureCookieSession {'next': '/celeb/', 'next_url': '/celeb/auth/login'}>
+2025-06-09 17:56:24,827 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/auth/login?next=/celeb/auth/login - 状态码: 200
+2025-06-09 17:56:27,681 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/auth/login
+2025-06-09 17:56:27,682 - celebrity_app - INFO - 备用登录页面访问，next_url=/celeb/, session=<SecureCookieSession {'next': '/celeb/', 'next_url': '/celeb/auth/login'}>
+2025-06-09 17:56:27,684 - celebrity_app - INFO - 备用登录: 用户 Lingganshike 登录成功，将重定向到 /celeb/
+2025-06-09 17:56:27,685 - celebrity_app - INFO - 最终重定向URL: /celeb/
+2025-06-09 17:56:27,685 - celebrity_app - INFO - 请求完成: POST http://localhost:5000/auth/login - 状态码: 302
+2025-06-09 17:56:27,698 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 17:56:27,699 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:56:27,703 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:56:27,762 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 17:56:27,763 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:56:27,769 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:56:29,009 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/list/
+2025-06-09 17:56:29,010 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:56:29,011 - celebrity_app - INFO - 数据文件路径: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:56:29,017 - celebrity_app - WARNING - 删除了可能格式错误的数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:56:29,018 - celebrity_app - INFO - 创建全新的示例数据
+2025-06-09 17:56:29,019 - celebrity_app - INFO - 使用内存中的示例数据，共 50 条
+2025-06-09 17:56:29,021 - celebrity_app - INFO - 已将示例数据保存到 D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:56:29,022 - celebrity_app - INFO - 分页信息: 当前页=1, 总页数=3, 当前页项目数=20
+2025-06-09 17:56:29,050 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:56:29,105 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:56:29,190 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:56:34,213 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/detail/1
+2025-06-09 17:56:34,214 - celebrity_app - ERROR - 发生错误: create_app.<locals>.celeb_detail_page() got an unexpected keyword argument 'id'
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\core\auth.py", line 79, in decorated_function
+    return f(*args, **kwargs)
+TypeError: create_app.<locals>.celeb_detail_page() got an unexpected keyword argument 'id'
+2025-06-09 17:56:34,219 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/detail/1 - 状态码: 500
+2025-06-09 17:56:37,323 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/edit/
+2025-06-09 17:56:37,325 - celebrity_app - INFO - 访问编辑页面 (/celeb/edit)
+2025-06-09 17:56:37,341 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/edit/?id=11 - 状态码: 200
+2025-06-09 17:56:37,387 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:56:37,390 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:56:43,170 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 17:56:43,171 - celebrity_app - INFO - 访问首页
+2025-06-09 17:56:43,172 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:56:43,174 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:56:43,185 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 17:56:43,186 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:56:43,187 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:56:43,242 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 17:56:43,244 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:56:43,247 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:56:44,262 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search
+2025-06-09 17:56:44,264 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search - 状态码: 308
+2025-06-09 17:56:44,277 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search/
+2025-06-09 17:56:44,301 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search/ - 状态码: 200
+2025-06-09 17:56:44,362 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:56:44,365 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:56:46,653 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search
+2025-06-09 17:56:46,654 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search?keyword=Antoine+Griezmann - 状态码: 308
+2025-06-09 17:56:46,666 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search/
+2025-06-09 17:56:46,667 - trans_web.core.app - INFO - 正在加载主数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:56:46,669 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search/?keyword=Antoine+Griezmann - 状态码: 200
+2025-06-09 17:56:46,717 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:56:46,719 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:56:48,821 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search
+2025-06-09 17:56:48,822 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search?keyword=Antoine+Griezmann - 状态码: 308
+2025-06-09 17:56:48,835 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search/
+2025-06-09 17:56:48,837 - trans_web.core.app - INFO - 正在加载主数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:56:48,838 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search/?keyword=Antoine+Griezmann - 状态码: 200
+2025-06-09 17:56:48,880 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:56:48,882 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:56:49,894 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 17:56:49,895 - celebrity_app - INFO - 访问首页
+2025-06-09 17:56:49,896 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:56:49,897 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:56:49,910 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 17:56:49,912 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:56:49,913 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:56:49,971 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 17:56:49,974 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:56:49,978 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:56:50,983 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/add
+2025-06-09 17:56:50,985 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/add - 状态码: 308
+2025-06-09 17:56:50,998 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/add/
+2025-06-09 17:56:51,006 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/add/ - 状态码: 200
+2025-06-09 17:56:51,064 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:56:51,066 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:56:53,286 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 17:56:53,288 - celebrity_app - INFO - 访问首页
+2025-06-09 17:56:53,289 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:56:53,291 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:56:53,309 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 17:56:53,311 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:56:53,313 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:56:53,372 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 17:56:53,374 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:56:53,376 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:56:54,766 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/data_management/
+2025-06-09 17:56:54,775 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/data_management/ - 状态码: 200
+2025-06-09 17:56:54,838 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:56:54,842 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:56:56,936 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/data_management/export_to_db
+2025-06-09 17:56:56,966 - celebrity_app - INFO - 请求完成: POST http://localhost:5000/data_management/export_to_db - 状态码: 200
+2025-06-09 17:56:58,749 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 17:56:58,751 - celebrity_app - INFO - 访问首页
+2025-06-09 17:56:58,751 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:56:58,754 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:56:58,770 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 17:56:58,771 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:56:58,772 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:56:58,835 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 17:56:58,837 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:56:58,841 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:57:00,094 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/edit
+2025-06-09 17:57:00,097 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/edit - 状态码: 308
+2025-06-09 17:57:00,114 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/edit/
+2025-06-09 17:57:00,118 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/edit/ - 状态码: 200
+2025-06-09 17:57:00,180 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:57:00,183 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:57:11,493 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 17:57:11,495 - celebrity_app - INFO - 访问首页
+2025-06-09 17:57:11,498 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:57:11,500 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:57:11,515 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 17:57:11,518 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:57:11,521 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:57:11,602 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 17:57:11,604 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:57:11,609 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:57:13,021 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/config
+2025-06-09 17:57:13,032 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/config - 状态码: 200
+2025-06-09 17:57:13,097 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:57:13,101 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:57:15,893 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 17:57:15,895 - celebrity_app - INFO - 访问首页
+2025-06-09 17:57:15,897 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 17:57:15,898 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 17:57:15,914 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 17:57:15,915 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 17:57:15,917 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 17:57:15,991 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 17:57:15,994 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 17:57:16,000 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 17:57:17,373 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/list/
+2025-06-09 17:57:17,374 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:57:17,375 - celebrity_app - INFO - 数据文件路径: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:57:17,377 - celebrity_app - WARNING - 删除了可能格式错误的数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:57:17,378 - celebrity_app - INFO - 创建全新的示例数据
+2025-06-09 17:57:17,379 - celebrity_app - INFO - 使用内存中的示例数据，共 50 条
+2025-06-09 17:57:17,389 - celebrity_app - INFO - 已将示例数据保存到 D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:57:17,390 - celebrity_app - INFO - 分页信息: 当前页=1, 总页数=3, 当前页项目数=20
+2025-06-09 17:57:17,394 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 17:57:17,449 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:57:17,454 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:58:38,814 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/list/
+2025-06-09 17:58:38,816 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:58:38,817 - celebrity_app - INFO - 数据文件路径: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:58:38,819 - celebrity_app - WARNING - 删除了可能格式错误的数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:58:38,820 - celebrity_app - INFO - 创建全新的示例数据
+2025-06-09 17:58:38,822 - celebrity_app - INFO - 使用内存中的示例数据，共 50 条
+2025-06-09 17:58:38,824 - celebrity_app - INFO - 已将示例数据保存到 D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:58:38,825 - celebrity_app - INFO - 分页信息: 当前页=2, 总页数=3, 当前页项目数=20
+2025-06-09 17:58:38,828 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/?page=2 - 状态码: 200
+2025-06-09 17:58:38,896 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:58:38,900 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 17:58:40,914 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/list/
+2025-06-09 17:58:40,915 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 17:58:40,916 - celebrity_app - INFO - 数据文件路径: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:58:40,918 - celebrity_app - WARNING - 删除了可能格式错误的数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:58:40,920 - celebrity_app - INFO - 创建全新的示例数据
+2025-06-09 17:58:40,921 - celebrity_app - INFO - 使用内存中的示例数据，共 50 条
+2025-06-09 17:58:40,924 - celebrity_app - INFO - 已将示例数据保存到 D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 17:58:40,925 - celebrity_app - INFO - 分页信息: 当前页=3, 总页数=3, 当前页项目数=10
+2025-06-09 17:58:40,928 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/?page=3 - 状态码: 200
+2025-06-09 17:58:40,997 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 17:58:40,998 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 18:00:34,933 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 18:00:34,933 - celebrity_app - INFO - 访问首页
+2025-06-09 18:00:34,935 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 18:00:34,935 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 18:00:34,947 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 18:00:34,948 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 18:00:34,952 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 18:00:35,037 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 18:00:35,039 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 18:00:35,041 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 18:00:36,253 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/add
+2025-06-09 18:00:36,257 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/add - 状态码: 308
+2025-06-09 18:00:36,270 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/add/
+2025-06-09 18:00:36,272 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/add/ - 状态码: 200
+2025-06-09 18:00:36,325 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 18:00:36,328 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 18:00:37,747 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 18:00:37,748 - celebrity_app - INFO - 访问首页
+2025-06-09 18:00:37,750 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 18:00:37,751 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 18:00:37,763 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 18:00:37,765 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 18:00:37,766 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 18:00:37,818 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 18:00:37,821 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 18:00:37,823 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 18:00:38,776 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search
+2025-06-09 18:00:38,777 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search - 状态码: 308
+2025-06-09 18:00:38,793 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search/
+2025-06-09 18:00:38,794 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search/ - 状态码: 200
+2025-06-09 18:00:38,850 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 18:00:38,854 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 18:00:42,684 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 18:00:42,687 - celebrity_app - INFO - 访问首页
+2025-06-09 18:00:42,689 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 18:00:42,690 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 18:00:42,705 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 18:00:42,707 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 18:00:42,710 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 18:00:42,800 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 18:00:42,805 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 18:00:42,811 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 18:00:43,782 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/edit
+2025-06-09 18:00:43,784 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/edit - 状态码: 308
+2025-06-09 18:00:43,796 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/edit/
+2025-06-09 18:00:43,799 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/edit/ - 状态码: 200
+2025-06-09 18:00:43,852 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 18:00:43,855 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 18:00:45,826 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/search/api
+2025-06-09 18:00:45,827 - trans_web.core.app - INFO - 正在加载主数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 18:00:45,827 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/search/api?keyword=Antoine%20Griezmann - 状态码: 200
+2025-06-09 18:00:47,234 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/
+2025-06-09 18:00:47,236 - celebrity_app - INFO - 访问首页
+2025-06-09 18:00:47,237 - celebrity_app - INFO - 根路径访问，重定向到子目录
+2025-06-09 18:00:47,237 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/ - 状态码: 302
+2025-06-09 18:00:47,249 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 18:00:47,250 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 18:00:47,251 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 18:00:47,311 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 18:00:47,313 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 18:00:47,317 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 18:01:41,463 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 18:01:41,465 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 18:01:41,467 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 18:01:41,516 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 18:01:41,517 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 18:01:41,520 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 18:01:49,311 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 18:01:49,314 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 18:01:49,316 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 18:01:49,358 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 18:01:49,359 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 18:01:49,361 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 18:02:02,874 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 18:02:02,875 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 18:02:02,877 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 18:02:02,952 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 18:02:02,954 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 18:02:02,956 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 18:02:05,386 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/list/
+2025-06-09 18:02:05,391 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 18:02:05,394 - celebrity_app - INFO - 数据文件路径: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 18:02:05,396 - celebrity_app - WARNING - 删除了可能格式错误的数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 18:02:05,398 - celebrity_app - INFO - 创建全新的示例数据
+2025-06-09 18:02:05,407 - celebrity_app - INFO - 使用内存中的示例数据，共 50 条
+2025-06-09 18:02:05,410 - celebrity_app - INFO - 已将示例数据保存到 D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 18:02:05,411 - celebrity_app - INFO - 分页信息: 当前页=1, 总页数=3, 当前页项目数=20
+2025-06-09 18:02:05,415 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 18:02:05,474 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 18:02:05,478 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304
+2025-06-09 18:02:07,121 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/
+2025-06-09 18:02:07,123 - celebrity_app - INFO - 访问/celeb/路径
+2025-06-09 18:02:07,126 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/ - 状态码: 200
+2025-06-09 18:02:07,172 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/logo.jpg
+2025-06-09 18:02:07,173 - celebrity_app - ERROR - 发生错误: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 278, in <lambda>
+    view_func=lambda **kw: self_ref().send_static_file(**kw),  # type: ignore # noqa: B950
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\app.py", line 326, in send_static_file
+    return send_from_directory(
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\flask\helpers.py", line 565, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "D:\3_Professional_softwares\Anaconda3\envs\cel_collect\lib\site-packages\werkzeug\utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-06-09 18:02:07,175 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/logo.jpg - 状态码: 500
+2025-06-09 18:02:08,816 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/celeb/list/
+2025-06-09 18:02:08,817 - celebrity_app - INFO - 访问列表页面 (/celeb/list)
+2025-06-09 18:02:08,817 - celebrity_app - INFO - 数据文件路径: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 18:02:08,819 - celebrity_app - WARNING - 删除了可能格式错误的数据文件: D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 18:02:08,821 - celebrity_app - INFO - 创建全新的示例数据
+2025-06-09 18:02:08,823 - celebrity_app - INFO - 使用内存中的示例数据，共 50 条
+2025-06-09 18:02:08,825 - celebrity_app - INFO - 已将示例数据保存到 D:\408687797\WPS云盘\灵感时刻\celebrity_1.0.14\celebrity_1.0.14\gallery\trans_web\db_main\celebrity_data.json
+2025-06-09 18:02:08,826 - celebrity_app - INFO - 分页信息: 当前页=1, 总页数=3, 当前页项目数=20
+2025-06-09 18:02:08,827 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/celeb/list/ - 状态码: 200
+2025-06-09 18:02:08,876 - celebrity_app - INFO - 强制执行全局认证检查: 路径=/static/css/main.css
+2025-06-09 18:02:08,880 - celebrity_app - INFO - 请求完成: GET http://localhost:5000/static/css/main.css - 状态码: 304

@@ -1,0 +1,10 @@
+{
+  "admin": {
+    "name": "管理员",
+    "password": "admin123"
+  },
+  "user": {
+    "name": "普通用户",
+    "password": "user123"
+  }
+}

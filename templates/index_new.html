@@ -1,0 +1,346 @@
+{% extends "layout.html" %}
+
+{% block title %}人物库编辑工具 (CLET){% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">人物库编辑工具 (CLET)</h1>
+        <p class="lead">数据查询、编辑与管理系统</p>
+    </div>
+    
+    <div class="row features">
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>数据查看</h3>
+                <p>浏览和查询人物库中的数据信息，支持多种检索方式。</p>
+                <a href="/celeb/list" class="btn btn-feature">
+                    <i class="fas fa-list"></i> 数据库列表
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <h3>数据编辑</h3>
+                <p>添加、修改或删除人物库中的数据，支持批量操作。</p>
+                <a href="/celeb/add" class="btn btn-feature">
+                    <i class="fas fa-user-plus"></i> 增加人物
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>数据检索</h3>
+                <p>使用不同的条件快速检索并定位目标数据。</p>
+                <a href="/celeb/search" class="btn btn-feature">
+                    <i class="fas fa-search"></i> 查找人物
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row features">
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h3>数据导入</h3>
+                <p>从外部数据源导入人物信息到系统中。</p>
+                <a href="/celeb/data_management" class="btn btn-feature">
+                    <i class="fas fa-file-import"></i> 导入数据库
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-cloud-download-alt"></i>
+                </div>
+                <h3>数据导出</h3>
+                <p>将人物库数据导出为外部格式以便备份或分享。</p>
+                <a href="/celeb/data_management" class="btn btn-feature">
+                    <i class="fas fa-file-export"></i> 导出数据库
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-save"></i>
+                </div>
+                <h3>数据备份</h3>
+                <p>创建人物库数据的备份副本，确保数据安全。</p>
+                <a href="/celeb/data_management" class="btn btn-feature">
+                    <i class="fas fa-hdd"></i> 备份数据库
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row features">
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3>系统设置</h3>
+                <p>配置系统参数，管理备份频率等设置。</p>
+                <a href="/celeb/config" class="btn btn-feature">
+                    <i class="fas fa-cogs"></i> 系统配置
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <h3>用户管理</h3>
+                <p>管理系统用户账号和权限设置。</p>
+                <a href="/celeb/auth/users" class="btn btn-feature">
+                    <i class="fas fa-users"></i> 管理用户
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="feature-box">
+                <div class="icon-container">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h3>关于系统</h3>
+                <p>查看系统版本、开发者信息等。</p>
+                <a href="#" class="btn btn-feature">
+                    <i class="fas fa-info"></i> 系统信息
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    :root {
+        --primary-color: #1a2f4c;
+        --primary-light: #27426a;
+        --primary-dark: #0f1a2e;
+        --accent-color: #3498DB;
+        --accent-light: #5DADE2;
+        --text-light: #ECF0F1;
+        --text-dark: #2C3E50;
+        --bg-color: #F5F7FA;
+        --card-bg: #FFFFFF;
+        --success-color: #2ECC71;
+        --warning-color: #F1C40F;
+        --danger-color: #E74C3C;
+        --border-radius: 12px;
+        --transition-speed: 0.3s;
+    }
+    
+    .header {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        color: var(--text-light);
+        padding: 25px 0;
+        margin-bottom: 40px;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-bottom: 4px solid var(--accent-color);
+        text-align: center;
+    }
+    
+    .main-title {
+        font-weight: 700;
+        margin: 0;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        letter-spacing: 1px;
+    }
+    
+    .user-welcome {
+        margin-top: 10px;
+        font-size: 1rem;
+    }
+    
+    .feature-card {
+        border-radius: var(--border-radius);
+        transition: all var(--transition-speed);
+        margin-bottom: 25px;
+        border: none;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        overflow: hidden;
+        background: var(--card-bg);
+        position: relative;
+        height: 100%;
+    }
+    
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+        opacity: 0;
+        transition: opacity var(--transition-speed);
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+    
+    .feature-card:hover::before {
+        opacity: 1;
+    }
+    
+    .card-header {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        color: var(--text-light);
+        font-weight: 600;
+        border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+        padding: 20px;
+        font-size: 1.2rem;
+        border-bottom: 3px solid var(--accent-color);
+        letter-spacing: 0.5px;
+    }
+    
+    .card-body {
+        background-color: var(--card-bg);
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 70px);
+    }
+    
+    .card-body p {
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    .buttons-container {
+        margin-top: auto;
+    }
+    
+    .btn-feature {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        color: var(--text-light);
+        border: none;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font-weight: 600;
+        transition: all var(--transition-speed);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: left;
+        text-decoration: none !important;
+        display: flex;
+        align-items: center;
+    }
+    
+    .btn-feature::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+        opacity: 0;
+        transition: opacity var(--transition-speed);
+        z-index: -1;
+    }
+    
+    .btn-feature:hover {
+        color: var(--text-light);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .btn-feature:hover::before {
+        opacity: 1;
+    }
+    
+    .feature-icon {
+        margin-right: 12px;
+        font-size: 1.1rem;
+        width: 24px;
+        text-align: center;
+    }
+    
+    footer {
+        text-align: center;
+        margin-top: 50px;
+        padding: 25px;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        color: var(--text-light);
+        font-size: 1rem;
+        border-top: 4px solid var(--accent-color);
+        box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* 诊断信息样式 */
+    .diagnostics-container {
+        margin-top: 3rem;
+        padding: 1rem;
+        border-top: 1px solid #eee;
+    }
+
+    .diagnostics-container summary {
+        cursor: pointer;
+        color: #777;
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+    }
+
+    .diagnostics-info {
+        background-color: #f9f9f9;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        padding: 1rem;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .diagnostics-info h3 {
+        font-size: 1rem;
+        margin: 1rem 0 0.5rem;
+    }
+
+    .diagnostics-info ul {
+        list-style: none;
+        padding-left: 1rem;
+    }
+
+    .diagnostics-info li {
+        margin: 0.3rem 0;
+    }
+
+    .diagnostics-info a {
+        color: var(--primary-color);
+    }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+{% endblock %} 

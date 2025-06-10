@@ -1,0 +1,269 @@
+{% extends "layout.html" %}
+
+{% block title %}用户管理 - Celebrity数据管理系统{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h1>用户管理</h1>
+    <p>在此页面可以管理系统用户账号</p>
+</div>
+
+<div class="user-management-container">
+    {% if success %}
+    <div class="alert alert-success">
+        {{ success }}
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="alert alert-danger">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <!-- 用户列表 -->
+    <div class="card">
+        <div class="card-header">
+            <h2>用户列表</h2>
+        </div>
+        <div class="card-body">
+            <table class="table user-table">
+                <thead>
+                    <tr>
+                        <th>用户名</th>
+                        <th>显示名称</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for username, user in users.items() %}
+                    <tr>
+                        <td>{{ username }}</td>
+                        <td>{{ user.name }}</td>
+                        <td>
+                            <button type="button" class="btn btn-edit" 
+                                    onclick="editUser('{{ username }}', '{{ user.name }}')">
+                                编辑
+                            </button>
+                            <button type="button" class="btn btn-danger" 
+                                    onclick="deleteUser('{{ username }}', '{{ user.name }}')">
+                                删除
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 添加新用户 -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>添加新用户</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" action="{{ url_for('auth.add_user') }}">
+                <div class="form-group">
+                    <label for="new_username">用户名</label>
+                    <input type="text" id="new_username" name="username" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="new_display_name">显示名称</label>
+                    <input type="text" id="new_display_name" name="display_name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="new_password">密码</label>
+                    <input type="password" id="new_password" name="password" required class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">添加用户</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 编辑用户模态框 -->
+    <div id="editUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>编辑用户</h2>
+            <form method="post" action="{{ url_for('auth.edit_user') }}">
+                <input type="hidden" id="edit_username" name="username">
+                <div class="form-group">
+                    <label for="edit_display_name">显示名称</label>
+                    <input type="text" id="edit_display_name" name="display_name" required class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="edit_password">新密码 (留空表示不修改)</label>
+                    <input type="password" id="edit_password" name="password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">保存修改</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 删除用户确认模态框 -->
+    <div id="deleteUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>确认删除</h2>
+            <p>您确定要删除用户 <span id="delete_user_name"></span> 吗?</p>
+            <form method="post" action="{{ url_for('auth.delete_user') }}">
+                <input type="hidden" id="delete_username" name="username">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">取消</button>
+                <button type="submit" class="btn btn-danger">确认删除</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .user-management-container {
+        margin-top: 20px;
+    }
+    .card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .card-header {
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+    }
+    .card-header h2 {
+        margin: 0;
+        font-size: 18px;
+    }
+    .card-body {
+        padding: 20px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    .btn {
+        padding: 8px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .btn-primary {
+        background-color: #0078D7;
+        color: white;
+    }
+    .btn-danger {
+        background-color: #d9534f;
+        color: white;
+    }
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+    .btn-edit {
+        background-color: #5bc0de;
+        color: white;
+    }
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+    }
+    .alert-success {
+        background-color: #dff0d8;
+        color: #3c763d;
+        border: 1px solid #d6e9c6;
+    }
+    .alert-danger {
+        background-color: #f2dede;
+        color: #a94442;
+        border: 1px solid #ebccd1;
+    }
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .table th, .table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    .mt-4 {
+        margin-top: 20px;
+    }
+    
+    /* 模态框样式 */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 500px;
+        position: relative;
+    }
+    .close {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function editUser(username, displayName) {
+        document.getElementById('edit_username').value = username;
+        document.getElementById('edit_display_name').value = displayName;
+        document.getElementById('edit_password').value = '';
+        document.getElementById('editUserModal').style.display = 'block';
+    }
+    
+    function deleteUser(username, displayName) {
+        document.getElementById('delete_username').value = username;
+        document.getElementById('delete_user_name').textContent = username + ' (' + displayName + ')';
+        document.getElementById('deleteUserModal').style.display = 'block';
+    }
+    
+    function closeModal() {
+        document.getElementById('editUserModal').style.display = 'none';
+        document.getElementById('deleteUserModal').style.display = 'none';
+    }
+    
+    // 点击模态框外部关闭模态框
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('editUserModal')) {
+            closeModal();
+        }
+        if (event.target == document.getElementById('deleteUserModal')) {
+            closeModal();
+        }
+    }
+</script>
+{% endblock %} 

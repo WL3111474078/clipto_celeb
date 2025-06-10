@@ -1,0 +1,375 @@
+{% extends 'base.html' %}
+
+{% block title %}删除人物{% endblock %}
+
+{% block page_title %}删除人物{% endblock %}
+
+{% block extra_css %}
+    <style>
+    .delete-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .delete-icon {
+        font-size: 3.5rem;
+        color: var(--danger-color);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .search-input {
+        border-radius: 50px;
+        padding: 12px 25px;
+        border: 2px solid var(--primary-color);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        font-size: 18px;
+        transition: all 0.3s;
+    }
+    
+    .search-input:focus {
+        border-color: var(--accent-color);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    
+    .search-btn {
+        border-radius: 50px;
+        padding: 12px 30px;
+        font-size: 18px;
+        font-weight: bold;
+        background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+        border: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: all 0.3s;
+    }
+    
+    .search-btn:hover {
+        background: linear-gradient(45deg, var(--primary-light), var(--primary-color));
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    
+    .search-btn:active {
+        transform: translateY(0);
+    }
+    
+    .result-table {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+    }
+    
+    .result-table .table {
+        margin-bottom: 0;
+    }
+    
+    .result-table th {
+        background-color: var(--primary-color);
+            color: white;
+            border: none;
+        padding: 15px;
+    }
+    
+    .result-table td {
+        padding: 15px;
+        vertical-align: middle;
+    }
+    
+    .result-table tr:nth-child(even) {
+        background-color: rgba(10, 61, 98, 0.05);
+    }
+    
+    .result-table tr:hover {
+        background-color: rgba(10, 61, 98, 0.1);
+    }
+    
+    .action-btn {
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin: 0 3px;
+        font-size: 14px;
+    }
+    
+    .no-results {
+            text-align: center;
+        padding: 40px 20px;
+        color: #666;
+    }
+    
+    .no-results-icon {
+        font-size: 4rem;
+        color: #ddd;
+        margin-bottom: 20px;
+    }
+    
+    .avatar-preview {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--primary-light);
+    }
+    
+    .empty-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #aaa;
+        font-size: 20px;
+    }
+    
+    .delete-warning {
+        background-color: rgba(231, 76, 60, 0.1);
+        border-left: 5px solid var(--danger-color);
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: var(--border-radius);
+    }
+    
+    /* 确认删除模态框样式 */
+    .modal-header {
+        background-color: var(--danger-color);
+        color: white;
+    }
+    
+    .modal-confirm-action {
+        background-color: var(--danger-color);
+        color: white;
+    }
+    
+    #deleteResult {
+        display: none;
+        margin-top: 20px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="delete-container">
+    <!-- 删除警告 -->
+    <div class="delete-warning animate-fade-in">
+        <h4 class="text-danger mb-3"><i class="fas fa-exclamation-triangle mr-2"></i>删除警告</h4>
+        <p>删除操作无法撤销，人物数据、照片和音频将会被永久删除。请谨慎操作!</p>
+    </div>
+
+    <!-- 搜索表单 -->
+    <div class="custom-card animate-fade-in">
+        <div class="custom-card-header">
+            <i class="fas fa-user-minus mr-2"></i> 删除人物
+        </div>
+        <div class="custom-card-body">
+            <div class="text-center mb-4">
+                <div class="delete-icon">
+                    <i class="fas fa-user-minus"></i>
+                </div>
+                <h3 class="mb-3">查找要删除的人物</h3>
+                <p class="lead text-muted">请输入人物姓名或ID进行搜索</p>
+            </div>
+            
+            <form id="searchForm" class="mb-4">
+                <div class="input-group">
+                    <input type="text" id="keyword" name="keyword" class="form-control search-input" placeholder="请输入人物姓名、ID或描述关键词..." required>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn search-btn">
+                            <i class="fas fa-search mr-2"></i> 搜索
+                        </button>
+                    </div>
+                </div>
+    </form>
+
+            <!-- 搜索结果 -->
+            <div id="searchResults" class="animate-fade-in" style="display: none;">
+                <div class="result-table">
+                    <table class="table table-custom">
+                        <thead>
+                            <tr>
+                                <th>头像</th>
+                                <th>姓名</th>
+                                <th>ID</th>
+                                <th>性别</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resultsBody">
+                            <!-- 结果将通过JS动态生成 -->
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+
+            <!-- 无结果提示 -->
+            <div id="noResults" class="no-results animate-fade-in" style="display: none;">
+                <div class="no-results-icon">
+                    <i class="fas fa-search-minus"></i>
+                </div>
+                <h4>未找到匹配的人物</h4>
+                <p class="text-muted">请尝试使用其他关键词进行搜索</p>
+                </div>
+
+            <!-- 删除结果提示 -->
+            <div id="deleteResult" class="animate-fade-in"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 确认删除模态框 -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">确认删除</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                您确定要删除人物 "<strong id="deletePersonName"></strong>" 吗？此操作无法撤销!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-danger modal-confirm-action" id="confirmDeleteBtn">确认删除</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 当前选中的人物ID
+    let currentPersonId = null;
+    
+    // 搜索表单提交处理
+    $('#searchForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const keyword = $('#keyword').val().trim();
+        if (!keyword) {
+            return;
+        }
+        
+        // 执行搜索
+        searchPerson(keyword);
+    });
+    
+    // 执行搜索
+    function searchPerson(keyword) {
+        // 隐藏之前的结果
+        $('#searchResults, #noResults, #deleteResult').hide();
+        $('#resultsBody').empty();
+        
+        // 发送请求
+        $.get("/delete/search", { keyword: keyword })
+            .done(function(data) {
+                if (data.success && data.results && data.results.length > 0) {
+                    // 显示搜索结果
+                    for (let person of data.results) {
+                        const row = `
+                            <tr>
+                                <td>
+                                    ${person.avatar ? 
+                                        `<img src="/base_photos/${person.avatar}" class="avatar-preview" alt="${person.name}">` : 
+                                        `<div class="empty-avatar"><i class="fas fa-user"></i></div>`
+                                    }
+                                </td>
+                                <td>${person.name || '未命名'}</td>
+                                <td>${person.id || '无ID'}</td>
+                                <td>${person.gender || '未知'}</td>
+                                <td>
+                                    <button class="btn btn-danger-custom action-btn delete-btn" data-id="${person.id}" data-name="${person.name}">
+                                        <i class="fas fa-trash-alt mr-1"></i> 删除
+                                    </button>
+                                </td>
+                            </tr>
+                        `;
+                        $('#resultsBody').append(row);
+                    }
+                    $('#searchResults').fadeIn();
+                    
+                    // 绑定删除按钮事件
+                    $('.delete-btn').click(function() {
+                        const personId = $(this).data('id');
+                        const personName = $(this).data('name');
+                        
+                        // 设置当前选中的人物
+                        currentPersonId = personId;
+                        
+                        // 显示确认对话框
+                        $('#deletePersonName').text(personName);
+                        $('#confirmDeleteModal').modal('show');
+                    });
+                } else {
+                    // 显示无结果提示
+                    $('#noResults').fadeIn();
+                }
+            })
+            .fail(function(xhr, status, error) {
+                // 显示错误提示
+                $('#deleteResult').html(`
+                    <div class="alert alert-danger-custom">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        搜索失败: ${xhr.responseJSON?.message || error}
+                    </div>
+                `).fadeIn();
+            });
+    }
+    
+    // 确认删除按钮处理
+    $('#confirmDeleteBtn').click(function() {
+        if (!currentPersonId) {
+            return;
+        }
+        
+        // 关闭确认对话框
+        $('#confirmDeleteModal').modal('hide');
+        
+        // 执行删除请求
+        $.post("/delete/delete", { id: currentPersonId })
+            .done(function(data) {
+                if (data.success) {
+                    // 显示成功提示
+                    $('#deleteResult').html(`
+                        <div class="alert alert-success-custom">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            ${data.message}
+                        </div>
+                    `).fadeIn();
+                    
+                    // 移除已删除的行
+                    $(`button[data-id="${currentPersonId}"]`).closest('tr').fadeOut(500, function() {
+                        $(this).remove();
+                        
+                        // 如果没有结果了，显示无结果提示
+                        if ($('#resultsBody').children().length === 0) {
+                            $('#searchResults').hide();
+                            $('#noResults').fadeIn();
+                        }
+                    });
+                } else {
+                    // 显示错误提示
+                    $('#deleteResult').html(`
+                        <div class="alert alert-danger-custom">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            ${data.message}
+                        </div>
+                    `).fadeIn();
+                }
+            })
+            .fail(function(xhr, status, error) {
+                // 显示错误提示
+                $('#deleteResult').html(`
+                    <div class="alert alert-danger-custom">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        删除失败: ${xhr.responseJSON?.message || error}
+                    </div>
+                `).fadeIn();
+            });
+    });
+});
+    </script>
+{% endblock %}

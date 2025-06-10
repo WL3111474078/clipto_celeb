@@ -1,0 +1,438 @@
+{% extends 'base.html' %}
+
+{% block title %}添加人物{% endblock %}
+
+{% block page_title %}添加人物{% endblock %}
+
+{% block extra_css %}
+<style>
+    .add-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .add-icon {
+        font-size: 3.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .form-control {
+        border-radius: var(--border-radius);
+        padding: 12px 18px;
+        border: 2px solid #e0e6ed;
+        background: #f7fafd;
+        font-size: 16px;
+        transition: all 0.3s;
+        box-shadow: none;
+    }
+    
+    .form-control:focus {
+        border-color: var(--primary-color);
+        background: #fff;
+        box-shadow: 0 0 0 2px rgba(10, 61, 98, 0.08);
+    }
+    
+    .form-control:hover {
+        border-color: var(--primary-light);
+        background: #f0f6ff;
+    }
+    
+    .form-group label {
+        font-weight: 600;
+        color: var(--primary-color);
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .submit-btn {
+        border-radius: 50px;
+        padding: 12px 36px;
+        font-size: 18px;
+        font-weight: bold;
+        background: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+        border: none;
+        color: #fff;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        transition: all 0.3s;
+    }
+    
+    .submit-btn:hover {
+        background: linear-gradient(45deg, var(--primary-light), var(--primary-color));
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    
+    .submit-btn:active {
+        transform: translateY(0) scale(0.98);
+    }
+    
+    .custom-file-label {
+        border-radius: var(--border-radius);
+        padding: 10px 15px;
+        border: 2px solid #e0e6ed;
+        background: #f7fafd;
+        height: auto;
+        line-height: 1.5;
+        color: #666;
+        transition: all 0.3s;
+    }
+    
+    .custom-file-input:focus ~ .custom-file-label {
+        border-color: var(--primary-color);
+        background: #fff;
+        box-shadow: 0 0 0 2px rgba(10, 61, 98, 0.08);
+    }
+    
+    .custom-file-input:hover ~ .custom-file-label {
+        border-color: var(--primary-light);
+        background: #f0f6ff;
+    }
+    
+    .preview-container {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        border: 2px dashed var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: 10px;
+        background: #f7fafd;
+    }
+    
+    .preview-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    .preview-placeholder {
+        color: var(--text-muted);
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    .success-message, .error-message {
+        display: none;
+        margin-top: 20px;
+    }
+    
+    .file-paths {
+        margin-top: 15px;
+        padding: 10px 15px;
+        background-color: #f8f9fa;
+        border-radius: var(--border-radius);
+        border-left: 4px solid var(--primary-color);
+        font-family: monospace;
+        word-break: break-all;
+    }
+    
+    .form-control:disabled, .form-control[readonly] {
+        background: #f0f0f0;
+        color: #aaa;
+    }
+    
+    .form-group:focus-within label {
+        color: var(--primary-light);
+    }
+    
+    /* 修复性别选择框显示问题 */
+    select.form-control, 
+    #gender,
+    .gender-select {
+        display: block !important;
+        width: 100% !important;
+        min-width: 120px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 10px 15px !important;
+        font-size: 1rem !important;
+        font-weight: 400 !important;
+        line-height: 1.5 !important;
+        height: auto !important;
+        min-height: 45px !important;
+        color: #495057 !important;
+        background-color: #fff !important;
+        background-clip: padding-box !important;
+        border: 1px solid #ced4da !important;
+        border-radius: 8px !important;
+        transition: all 0.3s ease !important;
+        -webkit-appearance: menulist !important;
+        -moz-appearance: menulist !important;
+        appearance: menulist !important;
+    }
+    
+    /* 确保性别下拉框容器占满整行 */
+    .gender-container {
+        width: 100% !important;
+        display: block !important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="add-container">
+    <div class="custom-card animate-fade-in">
+        <div class="custom-card-header">
+            <i class="fas fa-user-plus mr-2"></i> 添加新人物
+        </div>
+        <div class="custom-card-body">
+            <div class="text-center mb-4">
+                <div class="add-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <h3 class="mb-3">创建新人物记录</h3>
+                <p class="lead text-muted">请填写人物信息并上传照片和语音</p>
+            </div>
+            
+            <form id="addPersonForm" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <!-- 基本信息 -->
+                <div class="form-group">
+                    <label for="name">姓名 <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <div class="invalid-feedback">请输入姓名</div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="form-group gender-container">
+                        <label for="gender">性别</label>
+                        <select class="form-control gender-select" id="gender" name="gender" style="width: 100% !important; display: block !important;">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                            <option value="未知" selected>未知</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="alias">别名 (用逗号分隔多个别名)</label>
+                    <input type="text" class="form-control" id="alias" name="alias" placeholder="例如: 小明,Ming,Xiao Ming">
+                </div>
+                
+                <div class="form-group">
+                    <label for="title">头衔/职称</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="例如: 演员,歌手">
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">简介/描述</label>
+                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                </div>
+                
+                <div class="row">
+                    <!-- 照片上传 -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="photo">上传照片 (可选)</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="photo" name="photo" accept="image/*">
+                                <label class="custom-file-label" for="photo">选择照片文件</label>
+                            </div>
+                            <div class="preview-container mt-2" id="photoPreview">
+                                <div class="preview-placeholder">
+                                    <i class="fas fa-image mb-2" style="font-size: 24px;"></i><br>
+                                    照片预览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 语音上传 -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="voice">上传语音 (可选)</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="voice" name="voice" accept="audio/*">
+                                <label class="custom-file-label" for="voice">选择语音文件</label>
+                            </div>
+                            <div class="preview-container mt-2" id="voicePreview">
+                                <div class="preview-placeholder">
+                                    <i class="fas fa-microphone mb-2" style="font-size: 24px;"></i><br>
+                                    语音预览
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn submit-btn" id="submitBtn">
+                        <i class="fas fa-user-plus mr-2"></i> 添加人物
+                    </button>
+                </div>
+            </form>
+            
+            <!-- 成功消息 -->
+            <div class="alert alert-success-custom success-message" id="successMessage" role="alert">
+                <div class="d-flex align-items-center">
+                    <div class="mr-3">
+                        <i class="fas fa-check-circle fa-2x"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-1">人物添加成功！</h5>
+                        <p class="mb-0" id="successDetails">人物信息已保存到数据库。</p>
+                        
+                        <div class="file-paths mt-3" id="filePaths">
+                            <div class="mb-2"><strong>主数据文件:</strong> <span id="mainDataPath"></span></div>
+                            <div class="mb-2"><strong>照片目录:</strong> <span id="photoDir"></span></div>
+                            <div class="mb-2"><strong>语音目录:</strong> <span id="voiceDir"></span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <a href="/add" class="btn btn-outline-success mr-2">
+                        <i class="fas fa-plus-circle mr-1"></i> 添加另一个
+                    </a>
+                    <a href="/" class="btn btn-outline-primary">
+                        <i class="fas fa-home mr-1"></i> 返回首页
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 错误消息 -->
+            <div class="alert alert-danger-custom error-message" id="errorMessage" role="alert">
+                <div class="d-flex align-items-center">
+                    <div class="mr-3">
+                        <i class="fas fa-exclamation-triangle fa-2x"></i>
+                    </div>
+                    <div>
+                        <h5 class="mb-1">添加失败</h5>
+                        <p class="mb-0" id="errorDetails">处理请求时发生错误。</p>
+                    </div>
+                </div>
+                
+                <div class="mt-3">
+                    <button type="button" class="btn btn-outline-danger" onclick="$('#errorMessage').hide();$('#addPersonForm').show();">
+                        <i class="fas fa-redo mr-1"></i> 重试
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 照片预览
+    $('#photo').change(function(e) {
+        if (this.files && this.files[0]) {
+            const file = this.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                $('#photoPreview').html(`<img src="${e.target.result}" alt="照片预览">`);
+            };
+            
+            reader.readAsDataURL(file);
+            $(this).next('.custom-file-label').text(file.name);
+        }
+    });
+    
+    // 语音预览
+    $('#voice').change(function(e) {
+        if (this.files && this.files[0]) {
+            const file = this.files[0];
+            $(this).next('.custom-file-label').text(file.name);
+            
+            const audioElement = document.createElement('audio');
+            audioElement.controls = true;
+            audioElement.src = URL.createObjectURL(file);
+            
+            $('#voicePreview').html('');
+            $('#voicePreview').append(audioElement);
+        }
+    });
+    
+    // 表单验证
+    $('#addPersonForm').submit(function(e) {
+        e.preventDefault();
+        
+        // 验证表单
+        if (this.checkValidity() === false) {
+            e.stopPropagation();
+            $(this).addClass('was-validated');
+            return;
+        }
+        
+        // 禁用提交按钮防止重复提交
+        $('#submitBtn').prop('disabled', true).html('<i class="fas fa-spinner fa-spin mr-2"></i> 处理中...');
+        
+        // 创建FormData对象
+        const formData = new FormData(this);
+        
+        // 提交表单数据
+        $.ajax({
+            url: '/add/add_person',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                $('#submitBtn').prop('disabled', false).html('<i class="fas fa-user-plus mr-2"></i> 添加人物');
+                
+                if (response.success) {
+                    // 显示成功消息
+                    $('#addPersonForm').hide();
+                    $('#successMessage').fadeIn();
+                    $('#successDetails').text(`人物 "${formData.get('name')}" 已成功添加到数据库。`);
+                    
+                    // 显示文件路径信息
+                    $('#mainDataPath').text(response.main_data_path || '');
+                    $('#photoDir').text(response.photo_dir || '');
+                    $('#voiceDir').text(response.voice_dir || '');
+                    
+                    // 滚动到消息区域
+                    $('html, body').animate({
+                        scrollTop: $('#successMessage').offset().top - 100
+                    }, 500);
+                } else {
+                    // 显示错误消息
+                    $('#addPersonForm').hide();
+                    $('#errorMessage').fadeIn();
+                    $('#errorDetails').text(response.message || '处理请求时发生错误。');
+                    
+                    // 滚动到消息区域
+                    $('html, body').animate({
+                        scrollTop: $('#errorMessage').offset().top - 100
+                    }, 500);
+                }
+            },
+            error: function(xhr, status, error) {
+                $('#submitBtn').prop('disabled', false).html('<i class="fas fa-user-plus mr-2"></i> 添加人物');
+                
+                // 显示错误消息
+                $('#addPersonForm').hide();
+                $('#errorMessage').fadeIn();
+                
+                // 尝试解析错误消息
+                let errorMessage = '处理请求时发生错误。';
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    errorMessage = response.message || errorMessage;
+                } catch (e) {
+                    errorMessage = error || errorMessage;
+                }
+                
+                $('#errorDetails').text(errorMessage);
+                
+                // 滚动到消息区域
+                $('html, body').animate({
+                    scrollTop: $('#errorMessage').offset().top - 100
+                }, 500);
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

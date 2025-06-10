@@ -1,0 +1,286 @@
+{% extends 'base.html' %}
+
+{% block title %}合并文件{% endblock %}
+
+{% block page_title %}合并文件{% endblock %}
+
+{% block extra_css %}
+<style>
+    .merge-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .merge-icon {
+        font-size: 3.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .upload-area {
+        border: 2px dashed #ccc;
+        padding: 30px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        transition: all 0.3s;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+    
+    .upload-area:hover {
+        border-color: var(--primary-color);
+        background-color: rgba(10, 61, 98, 0.05);
+    }
+    
+    .upload-area.dragover {
+        border-color: var(--primary-color);
+        background-color: rgba(10, 61, 98, 0.05);
+    }
+    
+    .file-input {
+        display: none;
+    }
+    
+    .file-label {
+        display: block;
+        cursor: pointer;
+    }
+    
+    .uploaded-file {
+        display: none;
+        margin-top: 15px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: rgba(39, 174, 96, 0.1);
+        font-weight: bold;
+    }
+    
+    .file-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 300px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    
+    .merge-steps {
+        counter-reset: step;
+        padding-left: 0;
+    }
+    
+    .merge-steps li {
+        position: relative;
+        padding-left: 45px;
+        margin-bottom: 15px;
+        list-style-type: none;
+    }
+    
+    .merge-steps li:before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="merge-container">
+    <div class="custom-card animate-fade-in">
+        <div class="custom-card-header">
+            <i class="fas fa-object-group mr-2"></i> 合并文件
+        </div>
+        <div class="custom-card-body">
+            <div id="messageArea"></div>
+            
+            <div class="text-center mb-4">
+                <div class="merge-icon">
+                    <i class="fas fa-object-group"></i>
+                </div>
+                <h3 class="mb-3">合并JSON数据文件</h3>
+                <p class="lead text-muted">上传要合并的JSON文件，系统将自动将其与主数据库合并</p>
+            </div>
+            
+            <form id="mergeForm">
+                <div class="upload-area" id="uploadArea">
+                    <label class="file-label">
+                        <div class="mb-3">
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="mb-2">点击选择或拖放文件到这里</h5>
+                        <p class="text-muted mb-0">支持的文件格式: .json</p>
+                        <input type="file" name="file" id="fileInput" class="file-input" accept=".json">
+                    </label>
+                </div>
+                
+                <div class="uploaded-file alert alert-success" id="uploadedFile">
+                    <i class="fas fa-file-alt mr-2"></i>
+                    已选择文件: <span class="file-name" id="fileName"></span>
+                    <button type="button" class="btn btn-sm btn-link text-danger" id="removeFile">
+                        <i class="fas fa-times"></i> 移除
+                    </button>
+                </div>
+                
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left mr-2"></i> 返回
+                    </a>
+                    <button type="submit" class="btn btn-primary-custom" id="submitButton" disabled>
+                        <i class="fas fa-object-group mr-2"></i> 开始合并
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="custom-card animate-fade-in animate-delay-2 mt-4">
+        <div class="custom-card-header">
+            <i class="fas fa-info-circle mr-2"></i> 合并说明
+        </div>
+        <div class="custom-card-body">
+            <p>本功能允许您将其他JSON文件中的人物数据合并到主数据库中。合并过程的处理规则如下：</p>
+            <ol class="merge-steps">
+                <li>对于<strong>主数据库中已存在的人物</strong>（通过person_id判断），系统将合并以下信息：
+                    <ul>
+                        <li>如果导入的数据中包含不同的名称、标题或描述，将更新为导入的值</li>
+                        <li>合并别名列表，确保不重复</li>
+                        <li>合并照片列表，根据photo_id避免重复</li>
+                        <li>合并音频列表，根据voice_id避免重复</li>
+                    </ul>
+                </li>
+                <li>对于<strong>主数据库中不存在的人物</strong>，会直接添加到数据库中</li>
+                <li>合并完成后，系统会自动保存并备份原始数据</li>
+            </ol>
+            
+            <div class="alert alert-warning-custom mt-3">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <strong>注意：</strong> 请确保上传的JSON文件格式正确，且与系统数据结构兼容，否则合并可能会失败或出现意外结果。
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('fileInput');
+    const uploadArea = document.getElementById('uploadArea');
+    const uploadedFile = document.getElementById('uploadedFile');
+    const fileName = document.getElementById('fileName');
+    const removeFile = document.getElementById('removeFile');
+    const submitButton = document.getElementById('submitButton');
+    const mergeForm = document.getElementById('mergeForm');
+    const messageArea = document.getElementById('messageArea');
+    
+    // 文件选择处理
+    fileInput.addEventListener('change', function(e) {
+        if (this.files.length > 0) {
+            fileName.textContent = this.files[0].name;
+            uploadedFile.style.display = 'block';
+            submitButton.disabled = false;
+        } else {
+            uploadedFile.style.display = 'none';
+            submitButton.disabled = true;
+        }
+    });
+    
+    // 拖放功能
+    uploadArea.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('dragover');
+    });
+    
+    uploadArea.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+    });
+    
+    uploadArea.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+        
+        if (e.dataTransfer.files.length > 0) {
+            fileInput.files = e.dataTransfer.files;
+            fileName.textContent = e.dataTransfer.files[0].name;
+            uploadedFile.style.display = 'block';
+            submitButton.disabled = false;
+        }
+    });
+    
+    // 移除文件
+    removeFile.addEventListener('click', function() {
+        fileInput.value = '';
+        uploadedFile.style.display = 'none';
+        submitButton.disabled = true;
+    });
+    
+    // 表单提交
+    mergeForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (fileInput.files.length === 0) {
+            showMessage('请选择一个JSON文件进行合并', 'danger');
+            return;
+        }
+        
+        // 禁用提交按钮，显示加载状态
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> 合并中...';
+        
+        // 准备表单数据
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+        
+        // 发送请求
+        fetch('/data_management/merge', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message) {
+                // 显示成功消息
+                showMessage(data.message, 'success');
+                
+                // 清除文件选择
+                fileInput.value = '';
+                uploadedFile.style.display = 'none';
+            }
+        })
+        .catch(error => {
+            showMessage('合并过程中发生错误: ' + error.message, 'danger');
+        })
+        .finally(() => {
+            // 恢复提交按钮
+            submitButton.disabled = false;
+            submitButton.innerHTML = '<i class="fas fa-object-group mr-2"></i> 开始合并';
+        });
+    });
+    
+    // 显示消息函数
+    function showMessage(message, type) {
+        messageArea.innerHTML = `
+            <div class="alert alert-${type}-custom alert-dismissible fade show animate-fade-in" role="alert">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'} mr-2"></i>
+                ${message}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        `;
+    }
+});
+</script>
+{% endblock %}

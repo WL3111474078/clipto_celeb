@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}错误{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto mt-5">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0"><i class="fas fa-exclamation-triangle mr-2"></i>错误</h4>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-exclamation-circle text-danger" style="font-size: 5rem;"></i>
+                    </div>
+                    <h5 class="card-title text-center">发生了一个错误</h5>
+                    <p class="card-text text-center">{{ error }}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{{ url_for('celeb_index') if request.path.startswith('/celeb/') else url_for('index') }}" class="btn btn-secondary mr-2">
+                        <i class="fas fa-home mr-1"></i>返回首页
+                    </a>
+                    <a href="{{ url_for('celeb_list_page') if request.path.startswith('/celeb/') else url_for('list_page') }}" class="btn btn-primary">
+                        <i class="fas fa-list mr-1"></i>返回列表
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

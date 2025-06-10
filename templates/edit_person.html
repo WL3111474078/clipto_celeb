@@ -1,0 +1,413 @@
+{% extends 'base.html' %}
+
+{% block title %}编辑人物信息{% endblock %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --primary-color: #1a2f4c;
+        --primary-light: #27426a;
+        --primary-dark: #0f1a2e;
+        --accent-color: #3498DB;
+        --accent-light: #5DADE2;
+        --text-light: #ECF0F1;
+        --text-dark: #2C3E50;
+        --bg-color: #F5F7FA;
+        --card-bg: #FFFFFF;
+        --success-color: #2ECC71;
+        --warning-color: #F1C40F;
+        --danger-color: #E74C3C;
+        --border-radius: 12px;
+        --transition-speed: 0.3s;
+    }
+    
+    .edit-container {
+        background-color: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        padding: 30px;
+        margin: 20px auto;
+        max-width: 900px;
+    }
+    
+    .edit-header {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        color: var(--text-light);
+        padding: 20px;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+        margin: -30px -30px 30px;
+        border-bottom: 3px solid var(--accent-color);
+    }
+    
+    .edit-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 0;
+    }
+    
+    .form-group label {
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 8px;
+    }
+    
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+        padding: 12px 15px;
+        transition: all var(--transition-speed);
+    }
+    
+    .form-control:focus {
+        border-color: var(--primary-light);
+        box-shadow: 0 0 0 0.2rem rgba(26, 47, 76, 0.25);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        border: none;
+        border-radius: 8px;
+        padding: 12px 25px;
+        font-weight: 600;
+        transition: all var(--transition-speed);
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .btn-danger {
+        background: linear-gradient(135deg, #d9534f, #c9302c);
+        border: none;
+        border-radius: 8px;
+        padding: 12px 25px;
+        font-weight: 600;
+        transition: all var(--transition-speed);
+    }
+    
+    .btn-danger:hover {
+        background: linear-gradient(135deg, #c9302c, #d9534f);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .btn-secondary {
+        background: linear-gradient(135deg, #6c757d, #5a6268);
+        border: none;
+        border-radius: 8px;
+        padding: 12px 25px;
+        font-weight: 600;
+        transition: all var(--transition-speed);
+    }
+    
+    .btn-secondary:hover {
+        background: linear-gradient(135deg, #5a6268, #6c757d);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .custom-file-label {
+        border-radius: 8px;
+        padding: 12px 15px;
+        height: auto;
+        line-height: 1.5;
+    }
+    
+    .custom-file-label::after {
+        height: 100%;
+        padding: 12px 15px;
+        border-radius: 0 8px 8px 0;
+        background-color: var(--primary-light);
+        color: var(--text-light);
+    }
+    
+    .alert {
+        border-radius: 8px;
+        padding: 15px 20px;
+        margin-bottom: 20px;
+    }
+    
+    .media-preview {
+        margin-top: 15px;
+        text-align: center;
+    }
+    
+    .image-preview {
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .audio-preview {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .file-actions {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .file-action-btn {
+        padding: 5px 15px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+    }
+    
+    .not-found-message {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: var(--bg-color);
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    
+    .not-found-icon {
+        font-size: 4rem;
+        color: var(--primary-light);
+        margin-bottom: 20px;
+    }
+    
+    .not-found-text {
+        font-size: 1.2rem;
+        color: var(--text-dark);
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if person is defined and person %}
+    <div class="edit-container">
+        <div class="edit-header">
+            <h1 class="edit-title">编辑人物信息</h1>
+        </div>
+        
+        <div id="message-container"></div>
+        
+        <form id="edit-form" enctype="multipart/form-data">
+            <input type="hidden" id="person-id" value="{{ person.id or person.person_id or '' }}">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ person.name or '' }}" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="gender">性别</label>
+                        <select class="form-control" id="gender" name="gender">
+                            <option value="男" {% if person.gender == '男' %}selected{% endif %}>男</option>
+                            <option value="女" {% if person.gender == '女' %}selected{% endif %}>女</option>
+                            <option value="未知" {% if person.gender == '未知' or not person.gender %}selected{% endif %}>未知</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">简介</label>
+                <textarea class="form-control" id="description" name="description" rows="4">{{ person.description or '' }}</textarea>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>照片</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="photo" name="photo" accept="image/*">
+                            <label class="custom-file-label" for="photo">选择照片文件</label>
+                        </div>
+                        <div class="media-preview">
+                            {% if person.photo_path %}
+                            <img src="{{ person.photo_path }}" alt="{{ person.name }}" class="image-preview" id="current-photo">
+                            <div class="file-actions">
+                                <a href="{{ person.photo_path }}" class="btn btn-primary file-action-btn" download>下载</a>
+                                <button type="button" class="btn btn-danger file-action-btn" id="delete-photo">删除</button>
+                            </div>
+                            {% else %}
+                            <p class="text-muted">无照片</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>语音</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="audio" name="audio" accept="audio/*">
+                            <label class="custom-file-label" for="audio">选择语音文件</label>
+                        </div>
+                        <div class="media-preview">
+                            {% if person.audio_path %}
+                            <audio controls class="audio-preview" id="current-audio">
+                                <source src="{{ person.audio_path }}" type="audio/mpeg">
+                                您的浏览器不支持音频元素
+                            </audio>
+                            <div class="file-actions">
+                                <a href="{{ person.audio_path }}" class="btn btn-primary file-action-btn" download>下载</a>
+                                <button type="button" class="btn btn-danger file-action-btn" id="delete-audio">删除</button>
+                            </div>
+                            {% else %}
+                            <p class="text-muted">无语音</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group mt-4 text-center">
+                <button type="submit" class="btn btn-primary">保存修改</button>
+                <a href="/search" class="btn btn-secondary ml-2">返回搜索</a>
+            </div>
+        </form>
+    </div>
+    {% else %}
+    <div class="edit-container">
+        <div class="not-found-message">
+            <div class="not-found-icon">
+                <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <h2 class="not-found-text">未找到人物信息</h2>
+            <p class="text-muted">无法找到您要编辑的人物信息，请返回并选择有效的人物。</p>
+            <a href="/search" class="btn btn-primary mt-3">返回搜索</a>
+            <a href="/list" class="btn btn-secondary mt-3 ml-2">数据库列表</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function() {
+        // 处理文件选择时显示文件名
+        $('.custom-file-input').on('change', function() {
+            var fileName = $(this).val().split('\\').pop();
+            $(this).siblings('.custom-file-label').addClass('selected').html(fileName);
+            
+            // 照片预览
+            if (this.id === 'photo' && this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#current-photo').attr('src', e.target.result).show();
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+            
+            // 音频预览
+            if (this.id === 'audio' && this.files && this.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#current-audio').attr('src', e.target.result).show();
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        
+        // 删除照片
+        $('#delete-photo').on('click', function(e) {
+            e.preventDefault();
+            if (confirm('确定要删除此照片吗？')) {
+                var personId = $('#person-id').val();
+                $.ajax({
+                    url: '/delete_photo/' + personId,
+                    type: 'DELETE',
+                    success: function(response) {
+                        if (response.success) {
+                            $('#current-photo').hide();
+                            $('.file-actions').hide();
+                            $('#message-container').html(
+                                '<div class="alert alert-success">照片已成功删除</div>'
+                            );
+                        } else {
+                            $('#message-container').html(
+                                '<div class="alert alert-danger">' + response.message + '</div>'
+                            );
+                        }
+                    },
+                    error: function() {
+                        $('#message-container').html(
+                            '<div class="alert alert-danger">删除照片时发生错误</div>'
+                        );
+                    }
+                });
+            }
+        });
+        
+        // 删除音频
+        $('#delete-audio').on('click', function(e) {
+            e.preventDefault();
+            if (confirm('确定要删除此音频吗？')) {
+                var personId = $('#person-id').val();
+                $.ajax({
+                    url: '/delete_audio/' + personId,
+                    type: 'DELETE',
+                    success: function(response) {
+                        if (response.success) {
+                            $('#current-audio').hide();
+                            $(this).parent('.file-actions').hide();
+                            $('#message-container').html(
+                                '<div class="alert alert-success">音频已成功删除</div>'
+                            );
+                        } else {
+                            $('#message-container').html(
+                                '<div class="alert alert-danger">' + response.message + '</div>'
+                            );
+                        }
+                    },
+                    error: function() {
+                        $('#message-container').html(
+                            '<div class="alert alert-danger">删除音频时发生错误</div>'
+                        );
+                    }
+                });
+            }
+        });
+        
+        // 提交表单
+        $('#edit-form').on('submit', function(e) {
+            e.preventDefault();
+            
+            var formData = new FormData(this);
+            var personId = $('#person-id').val();
+            
+            $.ajax({
+                url: '/update_person/' + personId,
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    if (response.success) {
+                        $('#message-container').html(
+                            '<div class="alert alert-success">人物信息已成功更新</div>'
+                        );
+                        setTimeout(function() {
+                            window.location.href = '/search';
+                        }, 2000);
+                    } else {
+                        $('#message-container').html(
+                            '<div class="alert alert-danger">' + response.message + '</div>'
+                        );
+                    }
+                },
+                error: function() {
+                    $('#message-container').html(
+                        '<div class="alert alert-danger">更新人物信息时发生错误</div>'
+                    );
+                }
+            });
+        });
+    });
+</script>
+{% endblock %} 

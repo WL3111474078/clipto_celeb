@@ -1,0 +1,210 @@
+{% extends 'base.html' %}
+
+{% block title %}格式转换(DB转JSON){% endblock %}
+
+{% block page_title %}格式转换(DB转JSON){% endblock %}
+
+{% block extra_css %}
+<style>
+    .import-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .import-icon {
+        font-size: 3.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .upload-area {
+        border: 2px dashed #ccc;
+        padding: 30px;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #f8f9fa;
+        transition: all 0.3s;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+    
+    .upload-area:hover {
+        border-color: var(--primary-color);
+        background-color: rgba(10, 61, 98, 0.05);
+    }
+    
+    .upload-area.dragover {
+        border-color: var(--primary-color);
+        background-color: rgba(10, 61, 98, 0.05);
+    }
+    
+    .file-input {
+        display: none;
+    }
+    
+    .file-label {
+        display: block;
+        cursor: pointer;
+    }
+    
+    .uploaded-file {
+        display: none;
+        margin-top: 15px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: rgba(39, 174, 96, 0.1);
+        font-weight: bold;
+    }
+    
+    .file-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 300px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="import-container">
+    <div class="custom-card animate-fade-in">
+        <div class="custom-card-header">
+            <i class="fas fa-file-import mr-2"></i> 格式转换(DB转JSON)
+        </div>
+        <div class="custom-card-body">
+            {% if message %}
+                {% if success %}
+                    <div class="alert alert-success-custom animate-fade-in" role="alert">
+                        <i class="fas fa-check-circle mr-2"></i> {{ message }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger-custom animate-fade-in" role="alert">
+                        <i class="fas fa-exclamation-triangle mr-2"></i> {{ message }}
+                    </div>
+                {% endif %}
+            {% endif %}
+            
+            <div class="text-center mb-4">
+                <div class="import-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h3 class="mb-3">将.db数据库文件转换为JSON格式</h3>
+                <p class="lead text-muted">上传SQLite数据库文件，系统将自动转换为JSON格式并保存</p>
+            </div>
+            
+            <form action="{{ url_for('data_management.import_database') }}" method="post" enctype="multipart/form-data" id="importForm">
+                <div class="upload-area" id="uploadArea">
+                    <label class="file-label">
+                        <div class="mb-3">
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 3rem;"></i>
+                        </div>
+                        <h5 class="mb-2">点击选择或拖放文件到这里</h5>
+                        <p class="text-muted mb-0">支持的文件格式: .db</p>
+                        <input type="file" name="db_file" id="fileInput" class="file-input" accept=".db">
+                    </label>
+                </div>
+                
+                <div class="uploaded-file alert alert-success" id="uploadedFile">
+                    <i class="fas fa-file-alt mr-2"></i>
+                    已选择文件: <span class="file-name" id="fileName"></span>
+                    <button type="button" class="btn btn-sm btn-link text-danger" id="removeFile">
+                        <i class="fas fa-times"></i> 移除
+                    </button>
+                </div>
+                
+                <div class="d-flex justify-content-between">
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left mr-2"></i> 返回
+                    </a>
+                    <button type="submit" class="btn btn-primary-custom" id="submitButton" disabled>
+                        <i class="fas fa-cog mr-2"></i> 开始转换
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="custom-card animate-fade-in animate-delay-2 mt-4">
+        <div class="custom-card-header">
+            <i class="fas fa-info-circle mr-2"></i> 格式转换说明
+        </div>
+        <div class="custom-card-body">
+            <p>本功能将SQLite数据库(.db)文件转换为JSON格式，以便系统使用。转换过程会提取数据库中的以下表格数据：</p>
+            <ul>
+                <li><strong>people表</strong> - 包含人物的基本信息</li>
+                <li><strong>photos表</strong> - 包含照片相关信息</li>
+                <li><strong>voices表</strong> - 包含音频相关信息</li>
+            </ul>
+            <p>转换完成后，系统会生成两个文件：</p>
+            <ol>
+                <li>上传的原始数据库文件（备份）</li>
+                <li>转换后的JSON文件</li>
+            </ol>
+            <p>这两个文件都会保存在系统的导入目录中，并在转换完成后显示文件路径。</p>
+            
+            <div class="alert alert-warning-custom mt-3">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                <strong>注意：</strong> 请确保上传的数据库文件格式正确，且包含必要的表格和字段，否则转换可能会失败。
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('fileInput');
+    const uploadArea = document.getElementById('uploadArea');
+    const uploadedFile = document.getElementById('uploadedFile');
+    const fileName = document.getElementById('fileName');
+    const removeFile = document.getElementById('removeFile');
+    const submitButton = document.getElementById('submitButton');
+    
+    // 文件选择处理
+    fileInput.addEventListener('change', function(e) {
+        if (this.files.length > 0) {
+            fileName.textContent = this.files[0].name;
+            uploadedFile.style.display = 'block';
+            submitButton.disabled = false;
+        } else {
+            uploadedFile.style.display = 'none';
+            submitButton.disabled = true;
+        }
+    });
+    
+    // 拖放功能
+    uploadArea.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('dragover');
+    });
+    
+    uploadArea.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+    });
+    
+    uploadArea.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+        
+        if (e.dataTransfer.files.length > 0) {
+            fileInput.files = e.dataTransfer.files;
+            fileName.textContent = e.dataTransfer.files[0].name;
+            uploadedFile.style.display = 'block';
+            submitButton.disabled = false;
+        }
+    });
+    
+    // 移除文件
+    removeFile.addEventListener('click', function() {
+        fileInput.value = '';
+        uploadedFile.style.display = 'none';
+        submitButton.disabled = true;
+    });
+});
+</script>
+{% endblock %}

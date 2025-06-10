@@ -1,0 +1,309 @@
+{% extends 'base.html' %}
+
+{% block title %}数据备份设置{% endblock %}
+
+{% block page_title %}数据备份设置{% endblock %}
+
+{% block extra_css %}
+<style>
+    .settings-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .card-wrapper {
+        max-width: 800px;
+        margin: 0 auto 30px auto;
+    }
+    
+    .custom-card {
+        overflow: visible;
+    }
+    
+    .icon-box {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        position: absolute;
+        top: -30px;
+        left: 30px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .setting-container {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .form-slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        border-radius: 5px;
+        background: #f0f0f0;
+        outline: none;
+        margin-top: 15px;
+    }
+    
+    .form-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .form-slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .backup-detail {
+        padding: 15px;
+        border-left: 4px solid var(--primary-color);
+        background-color: rgba(10, 61, 98, 0.05);
+        border-radius: 0 5px 5px 0;
+        margin-bottom: 20px;
+    }
+    
+    .info-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .info-list li {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+    }
+    
+    .info-list li:last-child {
+        border-bottom: none;
+    }
+    
+    .info-list i {
+        color: var(--primary-color);
+        margin-right: 10px;
+        width: 20px;
+        text-align: center;
+    }
+    
+    .spinner-box {
+        display: flex;
+        align-items: center;
+    }
+    
+    .spinner-text {
+        margin-left: 15px;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+{% if success %}
+<div class="alert alert-success-custom animate-fade-in" role="alert">
+    <i class="fas fa-check-circle mr-2"></i> {{ message }}
+</div>
+{% endif %}
+
+{% if error %}
+<div class="alert alert-danger-custom animate-fade-in" role="alert">
+    <i class="fas fa-exclamation-triangle mr-2"></i> {{ message }}
+</div>
+{% endif %}
+
+<!-- 备份设置 -->
+<div class="card-wrapper animate-fade-in animate-delay-1">
+    <div class="position-relative custom-card">
+        <div class="icon-box">
+            <i class="fas fa-cog"></i>
+        </div>
+        <div class="custom-card-header" style="padding-left: 100px;">
+            备份设置
+        </div>
+        <div class="custom-card-body">
+            <form method="post" action="{{ url_for('config_page') }}" id="settingsForm">
+                <div class="setting-container">
+                    <label for="backup_interval" class="font-weight-bold d-block">自动备份时间间隔：<span id="intervalDisplay" class="badge badge-primary ml-2">{{ backup_interval }}小时</span></label>
+                    <p class="text-muted small">设置系统自动备份数据的时间间隔。值越小，备份越频繁；值越大，备份间隔越长。</p>
+                    
+                    <input type="range" class="form-slider" id="backup_interval" name="backup_interval" 
+                           min="1" max="24" value="{{ backup_interval }}" oninput="updateIntervalDisplay(this.value)">
+                    
+                    <div class="d-flex justify-content-between mt-2 small text-muted">
+                        <span>1小时 (频繁)</span>
+                        <span>12小时 (推荐)</span>
+                        <span>24小时 (较少)</span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary-custom">
+                    <i class="fas fa-save mr-2"></i>保存设置
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 手动备份 -->
+<div class="card-wrapper animate-fade-in animate-delay-2">
+    <div class="position-relative custom-card">
+        <div class="icon-box">
+            <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <div class="custom-card-header" style="padding-left: 100px;">
+            手动备份
+        </div>
+        <div class="custom-card-body">
+            <p>您可以随时手动触发数据备份，系统将备份当前所有数据到备份文件中。</p>
+            
+            <button id="manualBackupButton" class="btn btn-success-custom">
+                <i class="fas fa-cloud-upload-alt mr-2"></i>立即备份
+            </button>
+            
+            <!-- 进度信息 -->
+            <div id="backupProgressContainer" class="spinner-box mt-4" style="display: none;">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="sr-only">备份中...</span>
+                </div>
+                <span class="spinner-text text-primary">正在备份数据，请稍候...</span>
+            </div>
+            
+            <!-- 成功消息 -->
+            <div id="backupSuccessMessage" class="alert alert-success-custom mt-4" role="alert" style="display: none;"></div>
+            
+            <!-- 错误消息 -->
+            <div id="backupErrorMessage" class="alert alert-danger-custom mt-4" role="alert" style="display: none;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 备份说明 -->
+<div class="card-wrapper animate-fade-in animate-delay-3">
+    <div class="position-relative custom-card">
+        <div class="icon-box">
+            <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="custom-card-header" style="padding-left: 100px;">
+            备份说明
+        </div>
+        <div class="custom-card-body">
+            <div class="backup-detail">
+                <p class="font-weight-bold">系统备份功能将定期备份以下内容：</p>
+                <ul class="info-list">
+                    <li><i class="fas fa-file-alt"></i> 主数据JSON文件</li>
+                    <li><i class="fas fa-images"></i> 照片文件</li>
+                    <li><i class="fas fa-volume-up"></i> 音频文件</li>
+                </ul>
+            </div>
+            
+            <div class="alert alert-info-custom">
+                <i class="fas fa-lightbulb mr-2"></i>
+                <strong>提示：</strong> 所有备份文件将保存在系统的outputs目录中，以ZIP格式压缩存储。
+            </div>
+            
+            <div class="alert alert-warning-custom">
+                <i class="fas fa-exclamation-circle mr-2"></i>
+                <strong>注意：</strong> 备份不会在每次数据修改后自动触发，而是按照设定的时间间隔进行。如需立即备份，请使用手动备份功能。
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function updateIntervalDisplay(value) {
+    document.getElementById('intervalDisplay').textContent = value + '小时';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 手动备份功能
+    const backupButton = document.getElementById('manualBackupButton');
+    const progressContainer = document.getElementById('backupProgressContainer');
+    const successMessage = document.getElementById('backupSuccessMessage');
+    const errorMessage = document.getElementById('backupErrorMessage');
+    
+    if (backupButton) {
+        backupButton.addEventListener('click', function() {
+            // 禁用按钮，显示进度
+            backupButton.disabled = true;
+            progressContainer.style.display = 'flex';
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // 发送备份请求
+            fetch('/backup', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // 成功备份
+                    successMessage.innerHTML = `
+                        <div class="d-flex align-items-center">
+                            <div><i class="fas fa-check-circle mr-2" style="font-size: 24px;"></i></div>
+                            <div>
+                                <strong>备份成功!</strong>
+                                <p class="mb-1 mt-1">备份文件已保存到:</p>
+                                <code class="d-block bg-light p-2 rounded">${data.file_path}</code>
+                            </div>
+                        </div>
+                    `;
+                    successMessage.style.display = 'block';
+                } else {
+                    // 备份失败
+                    errorMessage.innerHTML = `
+                        <div class="d-flex align-items-center">
+                            <div><i class="fas fa-exclamation-triangle mr-2" style="font-size: 24px;"></i></div>
+                            <div>
+                                <strong>备份失败!</strong>
+                                <p class="mb-0 mt-1">${data.message}</p>
+                            </div>
+                        </div>
+                    `;
+                    errorMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                // 网络错误
+                errorMessage.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <div><i class="fas fa-exclamation-triangle mr-2" style="font-size: 24px;"></i></div>
+                        <div>
+                            <strong>备份失败!</strong>
+                            <p class="mb-0 mt-1">网络错误: ${error.message}</p>
+                        </div>
+                    </div>
+                `;
+                errorMessage.style.display = 'block';
+            })
+            .finally(() => {
+                // 恢复按钮状态，隐藏进度
+                backupButton.disabled = false;
+                progressContainer.style.display = 'none';
+            });
+        });
+    }
+});
+</script>
+{% endblock %} 

@@ -1,0 +1,50 @@
+# 将应用程序安装为Windows服务的步骤
+
+## 1. 下载NSSM
+从 http://nssm.cc/download 下载最新版本的NSSM工具
+
+## 2. 解压NSSM
+解压下载的zip文件到一个方便的位置
+
+## 3. 使用NSSM安装服务
+打开命令提示符(以管理员身份运行)，然后执行以下命令：
+
+```
+cd 解压NSSM的路径\win64  # 或者 win32，取决于系统位数
+nssm.exe install CelebrityApp
+```
+
+## 4. 在弹出的GUI中配置服务
+- Path: 输入python.exe的完整路径（例如：C:\Python39\python.exe）
+- Startup directory: 输入trans_web目录的完整路径
+- Arguments: 输入 run_production.py 的完整路径
+
+## 5. 在Details选项卡中设置
+- Display name: CelebrityApp
+- Description: Celebrity Collection Application
+- Startup type: Automatic
+
+## 6. 在Log on选项卡中设置
+- 选择合适的账户运行服务
+
+## 7. 点击"Install service"按钮完成安装
+
+## 8. 启动服务
+安装完成后，可以通过Windows服务管理器启动服务：
+- 按 Win+R，输入 services.msc 回车
+- 在服务列表中找到 "CelebrityApp" 服务
+- 右键点击并选择"启动"
+
+## 管理服务的其他命令
+```
+# 启动服务
+nssm.exe start CelebrityApp
+
+# 停止服务
+nssm.exe stop CelebrityApp
+
+# 重启服务
+nssm.exe restart CelebrityApp
+
+# 删除服务
+nssm.exe remove CelebrityApp 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Celebrity数据管理系统{% endblock %}</title>
+    {# 修改静态资源URL，使其在子目录模式下也能正常工作 #}
+    {% if request.environ.get('SCRIPT_NAME') == '/celeb' %}
+    <link rel="stylesheet" href="/celeb/static/css/main.css">
+    {% else %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    {% endif %}
+    {% block styles %}{% endblock %}
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* 顶部导航栏 */
+        .navbar {
+            background-color: #0078D7;
+            color: white;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .navbar .brand {
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        .navbar .user-info {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .username {
+            margin-right: 15px;
+        }
+        .navbar .logout {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+        }
+        .navbar .logout:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 内容区域 */
+        .content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            {# 修改首页链接，使其在子目录模式下也能正常工作 #}
+            {% if request.environ.get('SCRIPT_NAME') == '/celeb' %}
+            <a href="/celeb/" class="brand">Celebrity数据管理系统</a>
+            {% else %}
+            <a href="{{ url_for('index') }}" class="brand">Celebrity数据管理系统</a>
+            {% endif %}
+            <div class="user-info">
+                {% if is_authenticated %}
+                <span class="username">欢迎，{{ user_name }}</span>
+                {# 修改登出链接，使其在子目录模式下也能正常工作 #}
+                {% if request.environ.get('SCRIPT_NAME') == '/celeb' %}
+                <a href="/celeb/auth/logout" class="logout">登出</a>
+                {% else %}
+                <a href="{{ url_for('auth.logout') }}" class="logout">登出</a>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    
+    <div class="container content">
+        {% block content %}{% endblock %}
+    </div>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html> 

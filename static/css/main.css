@@ -1,0 +1,304 @@
+/* 
+ * CLET主样式表
+ * 适用于所有页面的统一样式
+ */
+
+:root {
+    --primary-color: #0A3D62; /* 更舒适的深蓝色 */
+    --primary-light: #1E6091; /* 深蓝色的浅色变体 */
+    --primary-dark: #072A45; /* 深蓝色的深色变体 */
+    --accent-color: #3498db; /* 点缀色 */
+    --success-color: #27ae60; /* 成功色 */
+    --warning-color: #f39c12; /* 警告色 */
+    --danger-color: #e74c3c; /* 危险色 */
+    --text-light: #f8f9fa; /* 浅色文字 */
+    --text-dark: #333; /* 深色文字 */
+    --bg-color: #f5f7fa; /* 背景色 */
+    --card-bg: #ffffff; /* 卡片背景色 */
+    --border-radius: 10px; /* 边框圆角 */
+}
+
+/* 基础样式 */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+a {
+    color: var(--primary-color);
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+/* 页面头部 */
+.page-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 20px 0;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    border-bottom: 4px solid var(--primary-light);
+}
+
+.page-title {
+    font-weight: bold;
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* 卡片样式 */
+.custom-card {
+    border-radius: var(--border-radius);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 25px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    background-color: var(--card-bg);
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.custom-card-header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: bold;
+    border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+    padding: 15px 20px;
+    font-size: 18px;
+    border-bottom: 3px solid var(--primary-light);
+}
+
+.custom-card-body {
+    padding: 20px;
+}
+
+/* 按钮样式 */
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--primary-light);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-primary-custom:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.btn-success-custom {
+    background-color: var(--success-color);
+    color: var(--text-light);
+}
+
+.btn-warning-custom {
+    background-color: var(--warning-color);
+    color: var(--text-light);
+}
+
+.btn-danger-custom {
+    background-color: var(--danger-color);
+    color: var(--text-light);
+}
+
+/* 表单样式 */
+.form-control-custom {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+
+.form-control-custom:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(10, 61, 98, 0.25);
+}
+
+.form-group-custom {
+    margin-bottom: 20px;
+}
+
+.form-label-custom {
+    font-weight: bold;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+}
+
+/* 表格样式 */
+.table-custom {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.table-custom thead th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 15px;
+}
+
+.table-custom tbody tr:nth-child(odd) {
+    background-color: rgba(10, 61, 98, 0.05);
+}
+
+.table-custom tbody tr:hover {
+    background-color: rgba(10, 61, 98, 0.1);
+}
+
+.table-custom td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+/* 分页样式 */
+.pagination-custom .page-item .page-link {
+    color: var(--primary-color);
+    border: 1px solid #ddd;
+    margin: 0 3px;
+    border-radius: 4px;
+}
+
+.pagination-custom .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+/* 警告和提示框样式 */
+.alert-custom {
+    border-radius: var(--border-radius);
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.alert-success-custom {
+    background-color: rgba(39, 174, 96, 0.15);
+    color: var(--success-color);
+    border-left: 4px solid var(--success-color);
+}
+
+.alert-warning-custom {
+    background-color: rgba(243, 156, 18, 0.15);
+    color: var(--warning-color);
+    border-left: 4px solid var(--warning-color);
+}
+
+.alert-danger-custom {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: var(--danger-color);
+    border-left: 4px solid var(--danger-color);
+}
+
+/* 图标样式 */
+.icon-custom {
+    margin-right: 8px;
+}
+
+/* 进度条样式 */
+.progress-custom {
+    height: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: #e9ecef;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.progress-bar-custom {
+    background-color: var(--primary-color);
+    transition: width 0.6s ease;
+}
+
+/* 图片样式 */
+.img-thumbnail-custom {
+    border-radius: var(--border-radius);
+    border: 3px solid var(--primary-light);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.img-thumbnail-custom:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* 页脚样式 */
+.footer-custom {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 20px 0;
+    margin-top: 50px;
+    text-align: center;
+    border-top: 3px solid var(--primary-light);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 24px;
+    }
+    
+    .custom-card-header {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    .custom-card-body {
+        padding: 15px;
+    }
+}
+
+/* 额外的辅助类 */
+.text-primary-custom { color: var(--primary-color) !important; }
+.text-light-custom { color: var(--text-light) !important; }
+.text-dark-custom { color: var(--text-dark) !important; }
+.bg-primary-custom { background-color: var(--primary-color) !important; }
+.bg-light-custom { background-color: var(--bg-color) !important; }
+.shadow-custom { box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important; } 
